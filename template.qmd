@@ -1,10 +1,10 @@
 ---
-title: "Demo aft format to use as template"
+title: "Demo Stylish Article"
 format:
-  aft-pdf:
+  stylisharticle-pdf:
     keep-tex: true  
-  aft-html: default
-author:
+  stylisharticle-html: default
+author_old:
   - name: John Doe
     affiliations:
       - name: Dummy org
@@ -25,6 +25,36 @@ abstract: |
 keywords: [template, demo]
 reference-section-title: References
 bibliography: bibliography.bib  
+# Modifications
+lang: en-US
+otherlangs: fr-FR
+author:
+  - name: "First Author's name"
+    authsuperscript: 1*
+  - name: "Second Author's name"
+    authsuperscript: 2
+affiliation:
+  - affsuperscript: 1
+    dptuniv: "Department / University"
+    address: >
+      Street address,
+      Zip code,
+      Country.
+  - affsuperscript: 2
+    dptuniv: "Department / University"
+    address: >
+      Street address,
+      Zip code,
+      Country.
+# Corresponding Author
+corrauthor:
+    email: name@company.com
+    url: https://www.company.com
+# First Page Header
+journalinfo: "Publication reference"
+archive: "DOI: xxx/xx"
+keywordlabel: Keywords
+corrauthorlabel: Corresponding author
 ---
 
 ## Introduction {#sec-intro}
@@ -179,3 +209,9 @@ Differences between `aft-html` and `aft-pdf`:
 
 * For the HTML format, we are using Pandoc citeproc to include the bibliography. Here `reference-section-title` controls the title for the chapter that will be used.
 * For the PDF format, `natbib` is used by default and the bibliography is included with a title by the LaTeX template. 
+
+::: {lang=fr-FR}
+# Français
+Ceci est un texte en français!
+:::
+

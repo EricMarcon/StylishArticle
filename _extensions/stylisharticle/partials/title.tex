@@ -1,0 +1,68 @@
+% Polyglossia
+% $if(lang)$
+% \usepackage{polyglossia}
+% \setmainlanguage{$lang$}
+% $for(otherlangs)$
+% \setotherlanguage{$otherlangs$}
+% $endfor$
+% $endif$
+
+%----------------------------------------------------------------------------------------
+%	ARTICLE INFORMATION
+%----------------------------------------------------------------------------------------
+
+$if(journalinfo)$
+\JournalInfo{$journalinfo$} % Journal information
+$else$
+\JournalInfo{\ }
+$endif$
+
+$if(archive)$
+\Archive{$archive$} % Additional notes (e.g. copyright, DOI, review/research article)
+$else$
+\Archive{\ }
+$endif$
+
+\PaperTitle{$title$} % Article title
+
+\Authors{
+$for(author)$
+  $author.name$\textsuperscript{$author.authsuperscript$}$sep$\\
+$endfor$
+}
+
+\affiliation{
+$for(affiliation)$
+  \textsuperscript{$affiliation.affsuperscript$}$affiliation.dptuniv$\\ \hspace{1em} $affiliation.address$$sep$\\
+$endfor$
+}
+% Corresponding author
+\affiliation{*\textbf{$corrauthorlabel$}: $corrauthor.email$, $if(corrauthor.url)$$corrauthor.url$$endif$}
+
+\Keywords{$for(keywords)$$keywords$$sep$, $endfor$} % Keywords
+\newcommand{\keywordname}{$keywordlabel$} % Defines the keywords heading name
+
+%----------------------------------------------------------------------------------------
+%	ABSTRACT
+%----------------------------------------------------------------------------------------
+
+\Abstract{
+$abstract$
+}
+
+%----------------------------------------------------------------------------------------
+
+% $if(title)$
+% \title{$title$$if(thanks)$\thanks{$thanks$}$endif$}
+% $endif$
+% $if(subtitle)$
+% \usepackage{etoolbox}
+% \makeatletter
+% \providecommand{\subtitle}[1]{% add subtitle to \maketitle
+%   \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+% }
+% \makeatother
+% \subtitle{$subtitle$}
+% $endif$
+% \author{${ by-author:_authors.tex()[\and ] }}
+% \date{$date$}
