@@ -25,11 +25,7 @@ $endif$
 
 \PaperTitle{$title$} % Article title
 
-\Authors{
-$for(author)$
-  $author.name$\textsuperscript{$author.authsuperscript$}$sep$\\
-$endfor$
-}
+\Authors{${ by-author:_authors.tex()[\and ] }}
 
 \affiliation{
 $for(affiliation)$
@@ -52,17 +48,3 @@ $abstract$
 
 %----------------------------------------------------------------------------------------
 
-% $if(title)$
-% \title{$title$$if(thanks)$\thanks{$thanks$}$endif$}
-% $endif$
-% $if(subtitle)$
-% \usepackage{etoolbox}
-% \makeatletter
-% \providecommand{\subtitle}[1]{% add subtitle to \maketitle
-%   \apptocmd{\@title}{\par {\large #1 \par}}{}{}
-% }
-% \makeatother
-% \subtitle{$subtitle$}
-% $endif$
-% \author{${ by-author:_authors.tex()[\and ] }}
-% \date{$date$}

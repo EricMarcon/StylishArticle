@@ -4,7 +4,9 @@ format:
   stylisharticle-pdf:
     keep-tex: true  
   stylisharticle-html: default
-author_old:
+  aft-pdf:
+    keep-tex: true  
+author:
   - name: John Doe
     affiliations:
       - name: Dummy org
@@ -20,6 +22,9 @@ author_old:
   - name: his friend
     affiliations:
       - Another Affiliation
+  - name: Athird One
+    affiliations:
+      - Third Affiliation
 abstract: |
   This document is only a demo explaining how to use the template.
 keywords: [template, demo]
@@ -28,7 +33,7 @@ bibliography: bibliography.bib
 # Modifications
 lang: en-US
 otherlangs: fr-FR
-author:
+authorz:
   - name: "First Author's name"
     authsuperscript: 1*
   - name: "Second Author's name"

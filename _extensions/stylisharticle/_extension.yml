@@ -1,5 +1,5 @@
-title: Article Format Template
-author: Christophe Dervieux
+title: Stylish Article
+author: Eric Marcon
 version: 0.1.0
 contributes:
   formats:
@@ -32,6 +32,7 @@ contributes:
         \definecolor{mypink}{RGB}{219, 48, 122}
       template-partials:
         # Add here the partials your format is using
+        - "partials/before-body.tex"
         - "partials/title.tex"
         - "partials/_authors.tex"
       format-resources:
