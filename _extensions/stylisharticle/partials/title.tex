@@ -25,7 +25,11 @@ $endif$
 
 \PaperTitle{$title$} % Article title
 
-\Authors{${ by-author:_authors.tex()[\and ] }}
+$-- \Authors{
+$-- $for(authorz)$$it.name$\textsuperscript{$it.authsuperscript$}$sep$\\ $endfor$
+$-- } % Authors
+
+\Authors{${ by-author:_authors.tex()[ ] }}
 
 \affiliation{
 $for(affiliation)$
