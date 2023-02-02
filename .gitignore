@@ -1,2 +1,17 @@
 .DS_Store
+
+# R files
 .Rproj.user
+.Rhistory
+
+# Quarto work files
+/nul
+/*.aux
+/*.cls
+/*.html
+/*.log
+/*.pdf
+/*.tex
+
+# Cache
+/*_files/
