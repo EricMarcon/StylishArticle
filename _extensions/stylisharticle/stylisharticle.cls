@@ -2,7 +2,7 @@
 % Adapted from
 % Stylish Article
 % LaTeX Template
-% Version 1.0 (31/1/13)
+% Version 1.0 (31/01/2013)
 %
 % This template has been downloaded from:
 % http://www.LaTeXTemplates.com
@@ -17,7 +17,7 @@
 % ---------------------------------------------------------------------
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{stylisharticle}[05/02/2021, v. 3.0]
+\ProvidesClass{stylisharticle}[03/02/2023, v. 3.1]
 \RequirePackage{ifthen}
 \RequirePackage{calc}
 \AtEndOfClass{\RequirePackage{microtype}}
@@ -98,19 +98,19 @@
 \usepackage{titletoc}
 \contentsmargin{0cm}
 \titlecontents{section}[\tocsep]
-  {\addvspace{4pt}\small\bfseries\sffamily}
+  {\addvspace{-2pt}\small\bfseries\sffamily}
   {\contentslabel[\thecontentslabel]{\tocsep}}
   {}
   {\hfill\thecontentspage}
   []
 \titlecontents{subsection}[\tocsep]
-  {\addvspace{2pt}\small\sffamily}
+  {\addvspace{-4pt}\small\sffamily}
   {\contentslabel[\thecontentslabel]{\tocsep}}
   {}
   {\ \titlerule*[.5pc]{.}\ \thecontentspage}
   []
 \titlecontents*{subsubsection}[\tocsep]
-  {\footnotesize\sffamily}
+  {\addvspace{-6pt}\footnotesize\sffamily}
   {}
   {}
   {}
