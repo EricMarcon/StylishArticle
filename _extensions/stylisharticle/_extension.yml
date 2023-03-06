@@ -33,6 +33,7 @@ contributes:
       include-in-header:
         - header.tex
       template-partials:
+        - "partials/before-body.tex"
         - "partials/title.tex"
         - "partials/tables.tex"
       format-resources:

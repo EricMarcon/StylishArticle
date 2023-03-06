@@ -17,7 +17,7 @@
 % ---------------------------------------------------------------------
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{stylisharticle}[03/02/2023, v. 3.1]
+\ProvidesClass{stylisharticle}[03/02/2023, v. 3.0]
 \RequirePackage{ifthen}
 \RequirePackage{calc}
 \AtEndOfClass{\RequirePackage{microtype}}
