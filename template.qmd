@@ -2,10 +2,10 @@
 title: "Demo Stylish Article"
 format:
   stylisharticle-pdf:
-    keep-tex: true  
+    keep-tex: true
   stylisharticle-html: default
   aft-pdf:
-    keep-tex: true  
+    keep-tex: true
 author:
   - name: John Doe
     affiliations:
@@ -166,6 +166,30 @@ R code is included in code chunks:
 head(cars)
 ```
 
+This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text.
+
+This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text.
+
+This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text.
+
+This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text.
+
+This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text.
+
+This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text.
+
+This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text.
+
+This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text.
+
+This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text.
+
+This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text.
+
+This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text.
+
+This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text.
+
 
 ## Tables
 
@@ -182,10 +206,12 @@ The `kable()` function in the _knitr_ package prepares the table for display and
 #| warning: FALSE
 #| eval: TRUE
 
-names(iris) <- c("Sepal length", "Width", "Petal length", "WidthGT", "Species")
-# knitr::kable(head(iris), longtable = TRUE, booktabs = TRUE) %>%
-# kableExtra::kable_styling(bootstrap_options = "striped")
-gt::gt(iris)
+names(iris) <- c("Sepal length", "Width", "Petal length", "Width", "Species")
+knitr::kable(head(iris), longtable = TRUE, booktabs = TRUE) %>%
+  kableExtra::kable_styling(bootstrap_options = "striped")
+# iris %>% 
+#  head() %>% 
+#  gt::gt()
 ```
 
 The caption is specified by the `caption` argument and referencing is possible because the table receives a label whose name is `tbl` followed by the name of the code snippet (table @tbl-kable).
@@ -196,10 +222,10 @@ In LaTeX, tables can have the width of the column and possibly span multiple pag
 
 ```{r}
 #| label: tbl-Paracou
-#| tbl-cap: Large table with maths, on two columns.
+#| tbl-cap: "Large table with maths, on two columns"
 #| echo: false
 #| warning: false
-#| eval: FALSE 
+#| eval: true 
 
 Intervention <- data.frame(
   Treatment=c("Control", "T1", "T2", "T3"),
@@ -218,8 +244,8 @@ Intervention <- data.frame(
   AGBLost=c(0, "$[12\\%-33\\%]$", "$[33\\%-56\\%]$", "$[35\\%-56\\%]$")
 )
 names(Intervention)[5] <- "\\%AGB lost"
-knitr::kable(Intervention, longtable = FALSE, booktabs = TRUE, escape = FALSE) %>%
-  kableExtra::kable_styling(bootstrap_options = "striped", full_width = TRUE)
+knitr::kable(Intervention, longtable = FALSE, booktabs = TRUE, escape = FALSE, table.envir = "table") %>%
+  kableExtra::kable_styling(bootstrap_options = "striped", full_width = "TRUE")
 ```
 
 This table contains mathematics: the `escape = FALSE` option is necessary.
