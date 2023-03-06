@@ -14,35 +14,33 @@ contributes:
       knitr:
         opts_chunk:
           echo: false
+      number-sections: true
+      number-depth: 2
+      toc-depth: 2
     pdf:
       # define default configuration for the pdf version of your format
       documentclass: stylisharticle
+      fontsize: 10pt
       colorlinks: true
-      urlcolor: red
-      fig-width: 6.5
-      fig-height: 4.5
-      # This format use a bst file with natbib
-      biblio-style: te
+      urlcolor: blue
+      csquotes: true
+      toc-depth: 3
       cite-method: natbib
-      # Set this below (`biblio-config: false`) if your cls already load a bst file
-      # biblio-config: false
-      # Content to add in header that your format is using
       header-includes: |
-        \usepackage{orcidlink}
-        \definecolor{mypink}{RGB}{219, 48, 122}
+        \definecolor{red}{RGB}{255, 0, 0}
+        \definecolor{green}{RGB}{0, 255, 0}
+        \definecolor{blue}{RGB}{0, 0, 255}
+      include-in-header:
+        - header.tex
       template-partials:
-        # Add here the partials your format is using
-        - "partials/before-body.tex"
         - "partials/title.tex"
-        - "partials/_authors.tex"
+        - "partials/tables.tex"
       format-resources:
-        # Add here the resources required for the PDF rendering
         - stylisharticle.cls
-        - te.bst
+        - chicago.bst
     html:
-      # define default configuration for the html version of your format
       number-sections: true
       toc: true
+      toc-depth: 3
       theme: custom.scss
-      # Use a CSL file to style (https://www.zotero.org/styles/)
-      csl: https://www.zotero.org/styles/journal-of-institutional-and-theoretical-economics
+      csl: https://www.zotero.org/styles/chicago-author-date

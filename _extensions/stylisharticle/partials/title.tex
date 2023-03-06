@@ -1,54 +1,64 @@
-% Polyglossia
-% $if(lang)$
-% \usepackage{polyglossia}
-% \setmainlanguage{$lang$}
-% $for(otherlangs)$
-% \setotherlanguage{$otherlangs$}
-% $endfor$
-% $endif$
-
-%----------------------------------------------------------------------------------------
-%	ARTICLE INFORMATION
-%----------------------------------------------------------------------------------------
-
+% Journal information
 $if(journalinfo)$
-\JournalInfo{$journalinfo$} % Journal information
+  \JournalInfo{$journalinfo$}
 $else$
-\JournalInfo{\ }
+  \JournalInfo{\ }
 $endif$
 
+% Additional notes (e.g. copyright, DOI, review/research article)
 $if(archive)$
-\Archive{$archive$} % Additional notes (e.g. copyright, DOI, review/research article)
+  \Archive{$archive$}
 $else$
-\Archive{\ }
+  \Archive{\ }
 $endif$
 
-\PaperTitle{$title$} % Article title
+% Article title
+\PaperTitle{$title$}
 
-$-- \Authors{
-$-- $for(authorz)$$it.name$\textsuperscript{$it.authsuperscript$}$sep$\\ $endfor$
-$-- } % Authors
-
-\Authors{${ by-author:_authors.tex()[ ] }}
-
-\affiliation{
-$for(affiliation)$
-  \textsuperscript{$affiliation.affsuperscript$}$affiliation.dptuniv$\\ \hspace{1em} $affiliation.address$$sep$\\
-$endfor$
+% Authors
+\Authors{
+  $for(by-author)$
+    {$it.name.literal$}%
+    \textsuperscript{%
+      $if(it.orcid)$~\orcidlink{$it.orcid$}$endif$%
+      $for(it.affiliations)$$it.number$$sep$,$endfor$%
+      $if(it.attributes.corresponding)$*$endif$%
+    }%
+    $sep$,
+  $endfor$
 }
-% Corresponding author
-\affiliation{*\textbf{$corrauthorlabel$}: $corrauthor.email$, $if(corrauthor.url)$$corrauthor.url$$endif$}
 
-\Keywords{$for(keywords)$$keywords$$sep$, $endfor$} % Keywords
+% Affiliations
+$for(by-author)$
+  $for(by-author.affiliations)$
+    \affiliation{%
+      \textsuperscript{$it.number$}%
+      $if(it.name)$$it.name$, $endif$%
+      $if(it.dptuniv)$$it.dptuniv$, $endif$%
+      $if(it.address)$$it.address$, $endif$%
+      $if(it.city)$$it.city$, $endif$%
+      $if(it.region)$$it.address$, $endif$%
+      $if(it.country)$$it.country$, $endif$%
+      $if(it.postal-code)$$it.postal-code$, $endif$%
+      $if(it.url)$$it.url$$endif$%
+    }
+  $endfor$
+$endfor$
+
+% Corresponding author
+$for(by-author)$
+  $if(it.attributes.corresponding)$
+    \affiliation{%
+      *\textbf{$corrauthorlabel$}: $it.email$$if(it.url)$, $it.url$$endif$%
+    }
+  $endif$%
+$endfor$
+
+% Keywords
+\Keywords{$for(keywords)$$keywords$$sep$, $endfor$}
 \newcommand{\keywordname}{$keywordlabel$} % Defines the keywords heading name
 
-%----------------------------------------------------------------------------------------
-%	ABSTRACT
-%----------------------------------------------------------------------------------------
-
+%	Abstract
 \Abstract{
-$abstract$
+  $abstract$
 }
-
-%----------------------------------------------------------------------------------------
-

@@ -4,9 +4,10 @@
 .Rproj.user
 .Rhistory
 
-# Quarto work files
+# Quarto working files
 /nul
 /*.aux
+/*.bst
 /*.cls
 /*.html
 /*.log

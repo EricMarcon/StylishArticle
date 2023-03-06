@@ -20,203 +20,402 @@ author:
     email: JD@example.org
     url: https://example.org/
   - name: his friend
-    affiliations:
-      - Another Affiliation
   - name: Athird One
+    corresponding: true
+    email: at@x.com
+    url: https://www.x.com
     affiliations:
       - Third Affiliation
 abstract: |
   This document is only a demo explaining how to use the template.
 keywords: [template, demo]
-reference-section-title: References
-bibliography: bibliography.bib  
-# Modifications
-lang: en-US
-otherlangs: fr-FR
-authorz:
-  - name: "First Author's name"
-    authsuperscript: 1*
-  - name: "Second Author's name"
-    authsuperscript: 2
-affiliation:
-  - affsuperscript: 1
-    dptuniv: "Department / University"
-    address: >
-      Street address,
-      Zip code,
-      Country.
-  - affsuperscript: 2
-    dptuniv: "Department / University"
-    address: >
-      Street address,
-      Zip code,
-      Country.
-# Corresponding Author
-corrauthor:
-    email: name@company.com
-    url: https://www.company.com
 # First Page Header
 journalinfo: "Publication reference"
 archive: "DOI: xxx/xx"
 keywordlabel: Keywords
 corrauthorlabel: Corresponding author
+# References
+reference-section-title: References
+bibliography: bibliography.bib
+biblio-style: chicago
+# Language
+lang: en-GB
+otherlangs: [fr-FR, it]
 ---
 
-## Introduction {#sec-intro}
-
-This is a dummy example only for the purpose to use this repo as a template starter for creating new formats.  For this `article-format-template` we call our dummy article `aft`. 
-
-This quarto extension format supports PDF and HTML outputs. `quarto-journals` is aiming at porting existing {{< latex >}} template from journals to be used with quarto. PDF format is what require the most work to fit the journals guideline, but Quarto offer a nice rendering for HTML output too. This demo format template only use basic HTML format without any customization for now.
-
-## About Quarto Extensions formats And Quarto Journals Article
-
-First, please get familiar with the following resources: 
-
-- [Creating Formats](https://quarto.org/docs/extensions/formats.html) in Quarto as part of the [Extensions](https://quarto.org/docs/extensions/) mechanism.
-- [Journals Articles](https://quarto.org/docs/journals/) for Quarto.
-
-## Structure of this repository
-
-Everything for the extensions is in `_extensions`. See Quarto doc for details. 
-
-- In `partials`, you'll find the `.tex` partials that can be used and should be removed or tweaked,s
-
-- Your extension can make shortcodes and lua filters available. This document shows the effect of the one provided in the `aft` format. 
-
-- `aft` format sets some defaults which are different from `pdf` or `html`, link setting links to URL in read inside PDF output.
-
-Source repository for this template format can found on [Github](https://github.com/quarto-journals/article-format-template)
-
-
-### `_extensions\aft` 
-
-In this folder you'll find everything that defines the extensions which could be installed using `quarto install extension` or be part of the template when using `quarto use template`
-
-Format Metadata
-  ~ This is in `_extension.yml` is where all the metadata about the format are defined so that Quarto knows what to use.
-  Adapt this file for you own template.
-
-Partials
-  ~ In `partials`, there are the `.tex` files that will be used as Pandoc's template. We provide here all the partials supported by Quarto and custom one for this format. Quarto allows to provide partials to ease the process of tweaking the default latex Pandoc's template and keeping it up to date.  
-    This template repo contains all the relevant partials that you can use with Quarto _as example_. We only tweaked `title.tex` to show the usage of a custom partials called `_custom.tex`.  
-    **Only keep the partials that you need to tweak for the format you are creating**
-
-    If you need to completely change the default template (i.g customizing partials is not enough), then you need to provide your own template to Pandoc based on [`template.tex`](https://github.com/quarto-dev/quarto-cli/blob/main/src/resources/formats/pdf/pandoc/template.tex) and also using partials or not. This can be provided using the `template` YAML key in `_extension.yml` for Quarto to use it. 
-
-    This is considered advanced configuration as it will be harder to maintain than only using partials but could be required for some specific format. Be aware that this may lead to loose some Pandoc or Quarto features tied to default `template.tex` content if you remove some specific parts.
-
-Lua Filters
-  ~ Most of the time, custom formats will need Lua filters to provide specific features like cross format supports or provides custom shortcodes through the Quarto extension mechanism. Those filters will be available to the user and could be used in the custom formats (according to `_extensions` metadata). 
-    We have provided two examples: 
-
-    - `color-text.lua`, a Lua filter used to add color to inline text for PDF and HTML outputs using the same Markdown syntax
-    - `shorcodes.lua`, a Lua filter which follow [Quarto custom shortcodes](https://quarto.org/docs/authoring/shortcodes.html#custom-shortcodes) guidelines to provide a `{{< LaTeX >}}` shortcode to nicely print LaTeX in PDF and HTML. 
-
-    **Remove or replace with your own Lua filters**
-
-Format resources
-
-  ~ Resources required by the format needs to be available. We have provided two examples: 
-
-    - `te.bst` is a biblio style file for demo. It has been downloaded from https://www.economics.utoronto.ca/osborne/latex/TEBST.HTM (http://econtheory.org/technical/te.bst) - Licence [LPPL](https://www.latex-project.org/lppl/)
-    - `aft.cls` is a dummy class file for this example format. It is a copy of official `article.cls`, the one provided in LaTeX installation (i.e at `kpsewhich article.cls`) and renamed as example (Licence LaTeX Project Public License)
-    - `custom.scss` is a style file to have a custom theme for our HTML format so that our Lua filter feature `color-tex.lua` works.
-
-    Those files are referenced within the `_extension.yml` to be used with our example format.
-
-    **Remove and replace with your own resources**
-
-`.quartoignore`
-
-  ~ Sometimes it is useful to have some files only needed for reference or for development. They should be available in the source repository but not downloaded to the user when `quarto use template` is used.
-
-    **Use `.quartoignore` to register such file and folder (one file or folder per line)**
-
-`style-guide` folder
-
-  ~ For `quarto-journals` format, use `style-guide` folder to include any documentation and resourced used for format creation, like a journal style guide or original `.tex` template. This folder is already added in `.quartoignore` in this example repo.
-
-    **Remove, rename or add to this folder**
-
-`template.qmd`
-
-  ~ This file is the template document that shows how to use the custom format. It will be downloaded with other resource by `quarto use template`, and even offered to be renamed if the name `template.qmd` is used. 
-
-    This file will usually use the custom format (here `aft-pdf` and `aft-html`) and show how to use the template. When you'll copy this template, you should be able to render this document to the demo format. 
-
-    **Adapt this file to provide a suitable template for your custom format**
-
-Other files
-
-  ~ Other files are needed by the template and are usually user provided - they are not part of the custom format. 
-
-    Here `bibliography.bib` is here to demo the usage of the bst file from the custom format.
-
-    **Remove this file and provide a suitable one for your template**
-
-{{< pagebreak >}}
-
-## Checklist: Creating a custom format
-
-Here is the checklist to help you know what to modify:
-
-- Read the resources mentioned at the top,
-- Use this template repo to create a new repository for your format (Click on "Use this template" to create new github repo)
-- Once you are acquainted with the content, remove the resources that are there only as example (see above)
-- Update README by replacing `aft` and `Article Format Template` mentions for your journal format
-- Keep only the template partials that you need to tweak, and add custom ones if needed
-- Add any Lua filters for shortcodes and other that would be useful to create the expected output format
-- Add any external resource your format will need, and that should be part of the extension format that will be downloaded,
-- Check `_extension.yml` is updated correctly
-- Modify the skeleton `template.qmd` to your format and add any required resources to be downloaded to user.
-- Check `.quartoignore` is updated which everything that should not be downloaded.
-- Publish a demo of you format to github pages of the repo by using `quarto publish` command 
-
-## Demo of some features found in this demo journal template
-
-### Shortcode demo {#sec-shortcode}
-
-PDF are rendered using {{< latex >}} but it is best if one can use a Markdown syntax for cross format support.
-
-`{{< latex >}}` used in source is a shortcode syntax where the shortcode is included in the extension folder `_extensions`
-
-### Code chunk {#sec-chunks}
-
-This format hide chunks by default as option has been set in `_extension.yml` file.
-
 ```{r}
-#| prompt: true
-# Loading some data but this chunk won't be shown.
-data("quine", package = "MASS")
+#| label: DoNotModify
+#| include: false
+### Utilities. Do not modify.
+# Installation of packages if necessary
+InstallPackages <- function(Packages) {
+  InstallPackage <- function(Package) {
+    if (!Package %in% installed.packages()[, 1]) {
+      install.packages(Package, repos="https://cran.rstudio.com/")
+    }
+  }
+  invisible(sapply(Packages, InstallPackage))
+}
+
+# Basic packages
+InstallPackages(c("bookdown", "formatR", "kableExtra", "ragg"))
+
+# kableExtra must be loaded 
+if (knitr::opts_knit$get("rmarkdown.pandoc.to") == "docx") {
+  # Word output (https://stackoverflow.com/questions/35144130/in-knitr-how-can-i-test-for-if-the-output-will-be-pdf-or-word)
+  # Do not use autoformat (https://github.com/haozhu233/kableExtra/issues/308)
+  options(kableExtra.auto_format = FALSE)
+}
+library("kableExtra")
+
+# Chunk font size hook: allows size='small' or any valid Latex font size in chunk options
+def.chunk.hook  <- knitr::knit_hooks$get("chunk")
+knitr::knit_hooks$set(chunk = function(x, options) {
+  x <- def.chunk.hook(x, options)
+  ifelse(options$size != "normalsize", paste0("\n \\", options$size,"\n\n", x, "\n\n \\normalsize"), x)
+})
 ```
 
-But you can set `echo` option to `true` locally in the chunk
-
 ```{r}
+#| label: Options
+#| include: false
+### Customized options for this document
+# Add necessary packages here
+Packages <- c("tidyverse")
+# Install them
+InstallPackages(Packages)
+
+# knitr options
+knitr::opts_chunk$set(
+  cache =   FALSE,    # Cache chunk results
+  include = TRUE,     # Show/Hide chunks
+  echo =    TRUE,     # Show/Hide code
+  warning = FALSE,    # Show/Hide warnings
+  message = FALSE,    # Show/Hide messages
+  # Figure alignment and size
+  fig.align = 'center', out.width = '80%',
+  # Graphic devices (ragg_png is better than standard png)
+  dev = c("ragg_png", "pdf"),
+  # Code chunk format
+  tidy = TRUE, tidy.opts = list(blank=FALSE, width.cutoff=50),
+  size = "scriptsize", knitr.graphics.auto_pdf = TRUE
+  )
+options(width = 50)
+
+# ggplot style
+library("tidyverse")
+theme_set(theme_bw())
+theme_update(panel.background=element_rect(fill="transparent", colour=NA),
+             plot.background=element_rect(fill="transparent", colour=NA))
+knitr::opts_chunk$set(dev.args=list(bg="transparent"))
+
+# Random seed
+set.seed(973)
+```
+
+
+# Introduction
+
+This template allows writing stylish articles in Markdown with Quarto [^1].
+It directly produces well-formatted articles for self-archiving (deposit on HAL for example) or in other formats, for example HTML.
+
+[^1]: <https://quarto.org/>
+
+
+# Markdown{#markdown}
+
+Markdown is a very simple language for producing various types of documents: HTML, PDF, and Word among others.
+Its documentation is available on the Quarto website[^2].
+
+[^2]: <https://quarto.org/docs/authoring/markdown-basics.html>
+
+This document was made RStudio, but other tools are available[^3]: Quarto processes the Markdown code, passes it to Pandoc for transformation into LaTeX, finally LaTeX compiles it into PDF.
+
+[^3]: <https://quarto.org/docs/get-started/>
+
+
+## Motivation
+
+Markdown is very easy to learn.
+
+Markdown allows you to integrate your R, Python and more code for a *reproducible* result.
+
+Markdown allows to produce, without rewriting the text, a document in different formats: HTML, LaTeX or Word for example.
+
+
+## How to do it
+
+See the documentation corresponding to your editing tool.
+
+
+
+# Code
+
+The main features of Markdown are summarized here.
+The full documentation is online[^4].
+
+[^4]: <https://quarto.org/docs/authoring/markdown-basics.html/>
+
+
+## R code
+
+R code is included in code chunks:
+
+```{r cars}
 #| echo: true
-m_pois <- glm(Days ~ (Eth + Sex + Age + Lrn)^2, data = quine, family = poisson)
-summary(m_pois)
+head(cars)
 ```
 
-### Text color {#sec-summary}
 
-Our format makes applying color on inline text possible using the `[content]{color=<name>}` syntax. Let's see an example.
+## Tables
 
-Here we are using a special feature of our format which is the coloring because [pink is a **nice** color]{color=mypink}.
+The horizontal `-` and vertical separators `|` allow you to draw a table according to Markdown syntax, but this is not the best method in R.
 
-This is possible thanks to the Lua Filter included in the custom extension format.
+Tables can also be produced by R code.
+The content of the table is in a dataframe.
+The `kable()` function in the _knitr_ package prepares the table for display and passes the result to the `kable_styling` function in the _kableExtra_ package for final formatting.
 
-### Using references {.unnumbered}
+```{r}
+#| label: tbl-kable
+#| tbl-cap: "Table _created_ by R, with $\\pi$. Not correctly formated as of Quarto v. 1.2."
+#| echo: FALSE
+#| warning: FALSE
+#| eval: TRUE
 
-I did not read this book [@CameronTrivedi2013] but it must be interesting. 
+names(iris) <- c("Sepal length", "Width", "Petal length", "WidthGT", "Species")
+# knitr::kable(head(iris), longtable = TRUE, booktabs = TRUE) %>%
+# kableExtra::kable_styling(bootstrap_options = "striped")
+gt::gt(iris)
+```
 
-Differences between `aft-html` and `aft-pdf`: 
+The caption is specified by the `caption` argument and referencing is possible because the table receives a label whose name is `tbl` followed by the name of the code snippet (table @tbl-kable).
+Always use the `booktabs = TRUE` argument so that the thickness of the separator lines is optimal in LaTeX.
+The `bootstrap_options = "striped"` option provides more readable tables in HTML.
 
-* For the HTML format, we are using Pandoc citeproc to include the bibliography. Here `reference-section-title` controls the title for the chapter that will be used.
-* For the PDF format, `natbib` is used by default and the bibliography is included with a title by the LaTeX template. 
+In LaTeX, tables can have the width of the column and possibly span multiple pages, or use the width of the page, like table \@tbl-Paracou)).
 
-<!-- ::: {lang=fr-FR} -->
-<!-- # Français -->
-<!-- Ceci est un texte en français! -->
-<!-- ::: -->
+```{r}
+#| label: tbl-Paracou
+#| tbl-cap: Large table with maths, on two columns.
+#| echo: false
+#| warning: false
+#| eval: FALSE 
 
+Intervention <- data.frame(
+  Treatment=c("Control", "T1", "T2", "T3"),
+  Timber=c("", 
+           "DBH $\\geq$ 50 cm, commercial species, $\\approx$ 10 trees/ha", 
+           "DBH $\\geq$ 50 cm, commercial species, $\\approx$ 10 trees/ha",
+           "DBH $\\geq$ 50 cm, commercial species, $\\approx$ 10 trees/ha"),
+  Thinning=c("", 
+             "", 
+             "DBH $\\geq$ 40 cm, non-valuable species, $\\approx$ 30 trees/ha", 
+             "DBH $\\geq$ 50 cm, non-valuable species, $\\approx$ 15 trees/ha  "),
+  Fuelwood=c("", 
+             "", 
+             "", 
+             "40 cm $\\leq$ DBH $\\leq$ 50 cm, non-valuable species, $\\approx$ 15 trees/ha"),
+  AGBLost=c(0, "$[12\\%-33\\%]$", "$[33\\%-56\\%]$", "$[35\\%-56\\%]$")
+)
+names(Intervention)[5] <- "\\%AGB lost"
+knitr::kable(Intervention, longtable = FALSE, booktabs = TRUE, escape = FALSE) %>%
+  kableExtra::kable_styling(bootstrap_options = "striped", full_width = TRUE)
+```
+
+This table contains mathematics: the `escape = FALSE` option is necessary.
+
+Finally, the `full_width = FALSE` option adjusts the width of the table to its content instead of occupying all the available width.
+It must be `TRUE` for correct formatting of two-column tables in LaTeX.
+
+
+## Figures
+
+```{r}
+#| label: fig-pressure
+#| fig.cap: "Figure _title_ with maths : $\\pi$ and cross-reference to @tbl-kable"
+#| out.width: 40%
+plot(pressure)
+```
+
+Figures can be created by the R code (figure @fig-pressure).
+With Bookdown, a label is associated with each figure: its name is that of the R code snippet.
+Cross-references are made with the command `@reference`, e.g.: `@fig-pressure`.
+
+A figure can use the full width of the page by adding the following options to the header of the code snippet that generates it: `fig.env="figure*"` and `out.extra=""`.
+
+Existing figures are integrated into a piece of code by the `include_graphics` function, see figure \@ref(fig:logo).
+
+```{r}
+#| label: logo
+#| fig.cap: "Logo"
+#| out.width: 30%
+knitr::include_graphics("images/logo.png")
+```
+
+Systematically place these files in the `images` folder for the automation of GitHub pages.
+
+In the HTML output, figure \@ref(fig:logo) is located in the margin of the document thanks to the advanced formatting possibilities of the **distill**[^6] package. 
+
+[^6]: https://rstudio.github.io/distill/
+
+
+## Captions
+
+Figure and table captions can be long, include formatted text, maths, references...
+The only limit is they cannot contain more than a single paragraph.
+Such captions must be stored in a separate paragraph starting with `(ref:ChunkName)`and a space.
+The text of the caption follows.
+
+In the figure chunk heading, the caption is called in the `fig.cap` field:
+
+  {r ChunkName, fig.cap="(ref:ChunkName)"}
+
+In tables, the `caption` argument of the `kable()` function is used the same way.
+
+
+## Lists
+
+Lists are indicated by `*`, `+` and `-` (three hierarchical levels) or numbers `1.`, `i.` and `A.` (numbered lists).
+Indentation of lists indicates their level: `*`, `+` and `-` may be replaced by `-` at all levels, but four spaces are needed to nest a list into another.
+
+* First element of a list
+    + sub-list
+* Second element
+* Continuation of the list
+
+Leave an empty line before and after the list, but not between its items.
+
+
+## Math
+
+Equations in LaTeX format can be inserted in line, like $A=\pi r^2$ or isolated like $$e^{i \pi} = -1.$$
+
+They can be numbered, see equation \@eq-disk), after adding them a label:
+
+$$
+  A = \pi r^2.
+$${#eq-disk}
+
+
+## Cross-references
+
+Figures and tables have a label declared in their code snippet, starting with `fig:` or `tbl:`.
+
+For equations, the label is added manually by the code `{#eq-xxx}` after the end of the equation.
+
+Sections can be tagged by ending their title with `{#sec-yyy}`.
+
+In all cases, the call to the reference is made by `@`.
+
+
+## Bibliography
+
+Bibliographic references included in the `references.bib` file can be called by `[@CitationKey]`, in parentheses [@CameronTrivedi2013], or without square brackets, in the text, as @CameronTrivedi2013.
+
+
+The bibliography is processed by Pandoc when producing Word or HTML documents.
+The bibliographic style can be specified, by adding the line 
+
+    csl:file_name.csl
+    
+in the document header and copying the _.csl_ style file to the project folder.
+More than a thousand styles are available[^5].
+
+[^5]: <https://github.com/citation-style-language/styles>
+
+For PDF documents, the bibliography is managed by natbib.
+The style is declared in the header:
+
+    biblio-style: chicago
+
+It can be changed as long as the appropriate `.bst` file (by default: `chicago.bst`) is included in the project. 
+
+
+## LaTeX preamble
+
+LaTeX commands can be added in the preamble of the produced LaTeX file, for example to load additional packages.
+These commands are in the `preamble:` section of the Markdown file header.
+
+The default commands allow to show the use of the hyphenation command:
+```
+\hyphenation%
+  {bio-di-ver-si-ty sap-lings}
+```
+
+Other commands can be added as needed.
+Warning:
+
+- Comments are not allowed.
+- Complex commands (e.g. `\renewenvironment`) must be entered on a single line otherwise they will be destroyed by knitr at the first knitting in HTML.
+
+
+## Forcing line breaks
+
+Hyphenation is handled automatically in LaTeX.
+If a word is not hyphenated correctly, add its hyphenation in the preamble of the file with the command `hyphenation` (words are separated by spaces, hyphenation locations are represented by dashes).
+
+If LaTeX can't find a solution for the line break, for example because some code is too long a non-breaking block, add the LaTeX command `\break` to the line break location.
+Do not leave a space before the command. 
+The HTML document ignores LaTeX commands.
+
+
+## Languages
+
+Languages are declared in the document header.
+
+The main language of the document (`lang`) changes the name of some elements, such as the table of contents.
+The change of language in the document (one of `otherlangs`) is managed in LaTeX but not in HTML by inserting on a new line the following command: 
+```
+\selectlanguage{english}
+```
+
+The current language has an effect only in LaTeX output: a space is added before double punctuation in French, the size of spaces is larger at the beginning of sentences in English, etc.
+The `\selectlanguage` command is simply ignored in HTML.
+
+Language codes are used in the header, such as `en-US` but language names are necessary in\break`\selectlanguage{}`.
+Name matches are listed in table 3 of the polyglossia package documentation[^7].
+
+[^7]: <http://mirrors.ctan.org/macros/unicodetex/latex/polyglossia/polyglossia.pdf>
+
+
+## Text color
+
+Our format makes applying color on inline text possible using the `[content]{color=<name>}` syntax. [This is a red example]{color=red}.
+
+
+# Document types
+
+This template is designed to work with the Stylish Article template in LaTeX and produce documents in PDF, HTML or Word format.
+Use the list of choices in the _Knit_ button to choose the output format.
+
+## PDF Document
+
+The document is formatted for self-archiving of well-formatted articles.
+
+## HTML document
+
+The GitBook template is optimized for on-screen reading.
+While writing, prefer knitting to HTML format for its speed of execution.
+A download button is available in the document menu bar: it will work if the document is also knitted in PDF format and if the file name is entered in the download field of the YAML header.
+
+The HMTL Document and all formats from the **rmdformats** packages are other possibilities.
+
+## Word document
+
+Its content can be formatted or copied into a template. 
+The standard text styles are "First Paragraph" and "Body Text".
+
+The advantage of the Word format is to produce a manuscript for journals that do not support LaTeX.
+The bibliographic style of the journal is most likely available in _.csl_ format, which minimizes manual preparation.
+
+The last line of this template (R code snippet) must be kept to display the title _References_ (to be translated into the document language if necessary) in HTML format.
+The level 1 title _References_ must be added manually to Word files.
+
+
+# Multilanguage {#sec-lang}
+
+\foreignlanguage{french}{"Bonjour" en Français!}
+
+::: {lang=it}
+> "Ciao" in italiano!
+:::
