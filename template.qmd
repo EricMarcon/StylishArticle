@@ -68,7 +68,7 @@ install_packages <- function(packages) {
 }
 
 # Basic packages
-install_packages(c("formatR", "kableExtra"))
+install_packages(c("knitR", "formatR", "kableExtra"))
 
 # Chunk font size hook: allows size='small' or any valid Latex font size in chunk options
 def.chunk.hook  <- knitr::knit_hooks$get("chunk")
