@@ -1,4 +1,4 @@
-# Style Guide for the Article Journal
+# Style Guide for Stylosh Article
 
 **TODO**: Place in this folder the style guide and other original resources useful for the template creation or template usage. 
 
