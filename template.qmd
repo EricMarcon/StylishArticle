@@ -4,8 +4,6 @@ format:
   stylisharticle-pdf:
     keep-tex: true
   stylisharticle-html: default
-  aft-pdf:
-    keep-tex: true
 author:
   - name: John Doe
     affiliations:
