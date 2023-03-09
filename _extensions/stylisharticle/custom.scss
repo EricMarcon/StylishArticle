@@ -1,7 +1,15 @@
 /*-- scss:defaults --*/
-$pink: rgb(219, 48, 122);
+$red:   rgb(255, 0, 0);
+$green: rgb(0, 255, 0);
+$blue:  rgb(0, 0, 255);
 
 /*-- scss:rules --*/
-.color-mypink {
-  color: $pink;
+.color-red {
+  color: $red;
+}
+.color-green {
+  color: $green;
+}
+.color-blue {
+  color: $blue;
 }
