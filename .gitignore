@@ -3,6 +3,7 @@
 # R files
 .Rproj.user
 .Rhistory
+.Rdata
 
 # Quarto working files
 /nul
