@@ -3,11 +3,13 @@ title: "Demo Stylish Article"
 # Output formats
 format:
   stylisharticle-pdf:
+    keep-tex: true
+    # Color example, see "Text color"
     header-includes:
       \definecolor{grey}{RGB}{191, 191, 191}
-    keep-tex: true
   stylisharticle-html:
-     css: colors.css
+    # Color example, see "Text color"
+    css: colors.css
 # Authors (https://quarto.org/docs/journals/authors.html#author-schema)
 author:
   - name: John Doe

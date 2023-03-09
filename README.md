@@ -1,3 +1,6 @@
+![stability-wip](https://img.shields.io/badge/stability-work_in_progress-lightgrey.svg)
+![R-CMD-check](https://github.com/EricMarcon/divent/workflows/R-CMD-check/badge.svg)
+
 # Stylish Article
 
 This is a Quarto template that assists you in creating a stylish article for self archiving.
@@ -37,8 +40,4 @@ format:
     keep-tex: true    
 ```
 
-You can view a preview of the rendered template at <https://EricMarcon.github.io/StylishArticle/>.
-
-## Format Options
-
-This format does not have specific format option. Include documentation of such option otherwise. See <https://github.com/quarto-journals/elsevier#format-options> for an example.
+You can view a preview of the rendered template in [PDF](https://EricMarcon.github.io/StylishArticle) or [HTML](https://ericmarcon.github.io/StylishArticle/template.html).
