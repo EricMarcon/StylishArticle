@@ -1,24 +1,15 @@
 title: Stylish Article
 author: Eric Marcon
-version: 0.1.0
+version: 1.0.0
 contributes:
   formats:
     common:
-      # define below YAML configuration common to all formats
       filters:
-        # You can include here Lua filters from your extension format
         - color-text.lua
-      shortcodes:
-        # You can include here Lua filters defining shortcodes from your extension
-        - shortcodes.lua
-      knitr:
-        opts_chunk:
-          echo: false
       number-sections: true
       number-depth: 2
       toc-depth: 2
     pdf:
-      # define default configuration for the pdf version of your format
       documentclass: stylisharticle
       fontsize: 10pt
       colorlinks: true
@@ -45,3 +36,6 @@ contributes:
       toc-depth: 3
       theme: custom.scss
       csl: https://www.zotero.org/styles/chicago-author-date
+      reference-location: margin
+      citation-location: margin
+      suppress-bibliography: true
