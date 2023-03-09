@@ -1,70 +1,74 @@
 ---
 title: "Demo Stylish Article"
+# Output formats
 format:
   stylisharticle-pdf:
+    header-includes:
+      \definecolor{grey}{RGB}{191, 191, 191}
     keep-tex: true
-  stylisharticle-html: default
+  stylisharticle-html:
+     css: colors.css
+# Authors (https://quarto.org/docs/journals/authors.html#author-schema)
 author:
   - name: John Doe
     affiliations:
-      - name: Dummy org
-        department: Cool Dep
+      - name: Dummy Organization
+        department: Scientifif Department
         address: Somewhere
-        city: Magic city
-        country: best one
+        city: City
+        country: Country
         postal-code: 9999
       - Demo Journal
     orcid: 0000-0000-0000-0000
     email: JD@example.org
     url: https://example.org/
-  - name: his friend
+  - name: His Friend
   - name: Athird One
     corresponding: true
     email: at@x.com
     url: https://www.x.com
     affiliations:
-      - Third Affiliation
+      - name: Third Affiliation
+# Abstract and Keywords
 abstract: |
-  This document is only a demo explaining how to use the template.
+  This document is only a demo explaining how to use the Stylish Article template.
 keywords: [template, demo]
-# First Page Header
-journalinfo: "Publication reference"
-archive: "DOI: xxx/xx"
-keywordlabel: Keywords
-corrauthorlabel: Corresponding author
-# References
+# Bibliography
 reference-section-title: References
 bibliography: bibliography.bib
 biblio-style: chicago
 # Language
 lang: en-GB
 otherlangs: [fr-FR, it]
+# Code options 
+# https://quarto.org/docs/computations/execution-options.html#output-options
+execute:
+  # Show the code in the output
+  echo: false
+# Template specific
+journalinfo: "Publication reference"
+archive: "DOI: xxx/xx"
+keywordlabel: Keywords
+corrauthorlabel: Corresponding Author
 ---
 
 ```{r}
 #| label: DoNotModify
 #| include: false
-### Utilities. Do not modify.
-# Installation of packages if necessary
-InstallPackages <- function(Packages) {
-  InstallPackage <- function(Package) {
-    if (!Package %in% installed.packages()[, 1]) {
-      install.packages(Package, repos="https://cran.rstudio.com/")
+### Utilities for R. 
+# Do not modify unless you don't use R: then, delete this chunk.
+# Installation of R packages if necessary
+install_packages <- function(packages) {
+  install_package <- function(package) {
+    if (!package %in% installed.packages()[, 1]) {
+      install.packages(package, repos="https://cran.rstudio.com/")
     }
   }
-  invisible(sapply(Packages, InstallPackage))
+  invisible(sapply(packages, install_package))
 }
 
 # Basic packages
-InstallPackages(c("bookdown", "formatR", "kableExtra", "ragg"))
-
-# kableExtra must be loaded 
-if (knitr::opts_knit$get("rmarkdown.pandoc.to") == "docx") {
-  # Word output (https://stackoverflow.com/questions/35144130/in-knitr-how-can-i-test-for-if-the-output-will-be-pdf-or-word)
-  # Do not use autoformat (https://github.com/haozhu233/kableExtra/issues/308)
-  options(kableExtra.auto_format = FALSE)
-}
-library("kableExtra")
+install_packages(c("formatR", "kableExtra"))
 
 # Chunk font size hook: allows size='small' or any valid Latex font size in chunk options
 def.chunk.hook  <- knitr::knit_hooks$get("chunk")
@@ -77,35 +81,34 @@ knitr::knit_hooks$set(chunk = function(x, options) {
 ```{r}
 #| label: Options
 #| include: false
-### Customized options for this document
-# Add necessary packages here
-Packages <- c("tidyverse")
-# Install them
-InstallPackages(Packages)
+### Customized R options for this document
+# Delete this chunk if you don't use R
 
-# knitr options
+# Add necessary packages here
+packages <- c("tidyverse")
+# Install them
+install_packages(packages)
+
+# knitr options (https://yihui.org/knitr/options/)
 knitr::opts_chunk$set(
-  cache =   FALSE,    # Cache chunk results
-  include = TRUE,     # Show/Hide chunks
-  echo =    TRUE,     # Show/Hide code
-  warning = FALSE,    # Show/Hide warnings
-  message = FALSE,    # Show/Hide messages
-  # Figure alignment and size
-  fig.align = 'center', out.width = '80%',
-  # Graphic devices (ragg_png is better than standard png)
-  dev = c("ragg_png", "pdf"),
-  # Code chunk format
-  tidy = TRUE, tidy.opts = list(blank=FALSE, width.cutoff=50),
-  size = "scriptsize", knitr.graphics.auto_pdf = TRUE
+  # Code chunk automatic format if tidy is TRUE
+  tidy = TRUE, 
+  # Tidy code options: remove blank lines and cut lines after 50 characters
+  tidy.opts = list(blank = FALSE, width.cutoff = 50),
+  # Font size in PDF output
+  size = "scriptsize", 
+  # Select PDF figures in PDF output if PDF file exists beside PNG file
+  knitr.graphics.auto_pdf = TRUE
   )
+# Text width of R functions output
 options(width = 50)
 
 # ggplot style
 library("tidyverse")
 theme_set(theme_bw())
-theme_update(panel.background=element_rect(fill="transparent", colour=NA),
-             plot.background=element_rect(fill="transparent", colour=NA))
-knitr::opts_chunk$set(dev.args=list(bg="transparent"))
+theme_update(panel.background = element_rect(fill="transparent", colour = NA),
+             plot.background = element_rect(fill="transparent", colour = NA))
+knitr::opts_chunk$set(dev.args = list(bg = "transparent"))
 
 # Random seed
 set.seed(973)
@@ -114,8 +117,8 @@ set.seed(973)
 
 # Introduction
 
-This template allows writing stylish articles in Markdown with Quarto [^1].
-It directly produces well-formatted articles for self-archiving (deposit on HAL for example) or in other formats, for example HTML.
+This template allows writing stylish articles in Markdown with Quarto[^1].
+It directly produces well-formatted PDF articles for self-archiving or in other formats, for example HTML.
 
 [^1]: <https://quarto.org/>
 
@@ -127,7 +130,7 @@ Its documentation is available on the Quarto website[^2].
 
 [^2]: <https://quarto.org/docs/authoring/markdown-basics.html>
 
-This document was made RStudio, but other tools are available[^3]: Quarto processes the Markdown code, passes it to Pandoc for transformation into LaTeX, finally LaTeX compiles it into PDF.
+This document was made RStudio, but other tools are available[^3]: Quarto processes the Markdown code, passes it to Pandoc for transformation into LaTeX based on the Stylish Article template provided in this Quarto extension; finally LaTeX compiles it into PDF.
 
 [^3]: <https://quarto.org/docs/get-started/>
 
@@ -136,15 +139,9 @@ This document was made RStudio, but other tools are available[^3]: Quarto proces
 
 Markdown is very easy to learn.
 
-Markdown allows you to integrate your R, Python and more code for a *reproducible* result.
+Markdown allows integrating your R, Python and more code for a *reproducible* result.
 
 Markdown allows to produce, without rewriting the text, a document in different formats: HTML, LaTeX or Word for example.
-
-
-## How to do it
-
-See the documentation corresponding to your editing tool.
-
 
 
 # Code
@@ -155,7 +152,7 @@ The full documentation is online[^4].
 [^4]: <https://quarto.org/docs/authoring/markdown-basics.html/>
 
 
-## R code
+## R and other code
 
 R code is included in code chunks:
 
@@ -164,29 +161,37 @@ R code is included in code chunks:
 head(cars)
 ```
 
-This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text.
+Similar chunks support other languages such as Python.
+This template focuses on R but can be used with any other code language supported by Quarto.
 
-This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text.
 
-This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text.
+## Figures
 
-This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text.
+```{r}
+#| label: fig-pressure
+#| fig.cap: "Figure _title_ with maths : $\\pi$ and cross-reference to @tbl-kable"
+#| out.width: 40%
+#| fig.env: "figure*"
+plot(pressure)
+```
 
-This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text.
+Figures can be created by  R code (@fig-pressure).
+A label is associated with each figure: its name is given in the `#| label:` option of the chunk that produces it.
+It must start with `fig-`.
+Cross-references are made with the command `@label`, e.g.: `@fig-pressure`.
 
-This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text.
+In PDF, a figure can use the full width of the page by adding the following options to the header of the code chunk that generates it: `fig.env="figure*".
 
-This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text.
+Existing figures are integrated into a piece of code by the `include_graphics()` function, see @fig-logo.
 
-This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text.
+```{r}
+#| label: fig-logo
+#| fig.cap: "Logo"
+#| out.width: 30%
+knitr::include_graphics("images/logo.png")
+```
 
-This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text.
-
-This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text.
-
-This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text.
-
-This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text. This is some dummy text.
+Systematically place these files in the `images` folder for the automation of GitHub pages.
 
 
 ## Tables
@@ -200,30 +205,37 @@ The `kable()` function in the _knitr_ package prepares the table for display and
 ```{r}
 #| label: tbl-kable
 #| tbl-cap: "Table _created_ by R, with $\\pi$. Not correctly formated as of Quarto v. 1.2."
-#| echo: FALSE
+#| echo: TRUE
+#| tidy: false
 #| warning: FALSE
-#| eval: TRUE
 
-names(iris) <- c("Sepal length", "Width", "Petal length", "Width", "Species")
-knitr::kable(head(iris), longtable = TRUE, booktabs = TRUE) %>%
+names(iris) <- c("Sepal length", "Width", "Petal length", 
+                 "Width", "Species")
+knitr::kable(
+  head(iris), longtable = TRUE, booktabs = TRUE
+) %>%
   kableExtra::kable_styling(bootstrap_options = "striped")
-# iris %>% 
-#  head() %>% 
-#  gt::gt()
 ```
 
-The caption is specified by the `caption` argument and referencing is possible because the table receives a label whose name is `tbl` followed by the name of the code snippet (table @tbl-kable).
-Always use the `booktabs = TRUE` argument so that the thickness of the separator lines is optimal in LaTeX.
+The caption is specified by the `#| tbl-cap:` chunk option.
+At the moment, it is restricted to simple text without format, math or cross references (@tbl-kable), in contrast with figure captions (see @fig-pressure).
+
+Always use the `booktabs = TRUE` argument so that the separator lines are optimal in LaTeX.
 The `bootstrap_options = "striped"` option provides more readable tables in HTML.
 
-In LaTeX, tables can have the width of the column and possibly span multiple pages, or use the width of the page, like table \@tbl-Paracou)).
+In LaTeX, `longtable = TRUE` selects the "longtable" package to format tables.
+Such tables are placed in the text.
+Due to limits of the "longtable" package which does not support multi-column layouts, the Stylish Article template uses a workaround that does not allow really long tables to be split into several columns or pages.
+So, `longtable = TRUE` only means that the table will be one-column wide and located in the text if possible. 
+If not, it will float.
+
+To use the full width of the page, like @tbl-Paracou, `longtable` is set to `FALSE` and `table.envir = "table"` is added in the aguments of `kable()`.
 
 ```{r}
 #| label: tbl-Paracou
 #| tbl-cap: "Large table with maths, on two columns"
 #| echo: false
 #| warning: false
-#| eval: true 
 
 Intervention <- data.frame(
   Treatment=c("Control", "T1", "T2", "T3"),
@@ -242,59 +254,16 @@ Intervention <- data.frame(
   AGBLost=c(0, "$[12\\%-33\\%]$", "$[33\\%-56\\%]$", "$[35\\%-56\\%]$")
 )
 names(Intervention)[5] <- "\\%AGB lost"
-knitr::kable(Intervention, longtable = FALSE, booktabs = TRUE, escape = FALSE, table.envir = "table") %>%
-  kableExtra::kable_styling(bootstrap_options = "striped", full_width = "TRUE")
+knitr::kable(Intervention, longtable = FALSE, table.envir = "table", booktabs = TRUE, escape = FALSE) %>%
+  kableExtra::kable_styling(bootstrap_options = "striped", full_width = TRUE)
 ```
 
-This table contains mathematics: the `escape = FALSE` option is necessary.
+This table contains mathematics: the `escape = FALSE` argument is necessary in `kable()`.
 
-Finally, the `full_width = FALSE` option adjusts the width of the table to its content instead of occupying all the available width.
-It must be `TRUE` for correct formatting of two-column tables in LaTeX.
+Finally, the `full_width = TRUE` argument in `kable_styling()` adjusts the width of the table to the available width.
+It must be set for correct formatting of two-column tables in LaTeX.
 
-
-## Figures
-
-```{r}
-#| label: fig-pressure
-#| fig.cap: "Figure _title_ with maths : $\\pi$ and cross-reference to @tbl-kable"
-#| out.width: 40%
-plot(pressure)
-```
-
-Figures can be created by the R code (figure @fig-pressure).
-With Bookdown, a label is associated with each figure: its name is that of the R code snippet.
-Cross-references are made with the command `@reference`, e.g.: `@fig-pressure`.
-
-A figure can use the full width of the page by adding the following options to the header of the code snippet that generates it: `fig.env="figure*"` and `out.extra=""`.
-
-Existing figures are integrated into a piece of code by the `include_graphics` function, see figure \@ref(fig:logo).
-
-```{r}
-#| label: logo
-#| fig.cap: "Logo"
-#| out.width: 30%
-knitr::include_graphics("images/logo.png")
-```
-
-Systematically place these files in the `images` folder for the automation of GitHub pages.
-
-In the HTML output, figure \@ref(fig:logo) is located in the margin of the document thanks to the advanced formatting possibilities of the **distill**[^6] package. 
-
-[^6]: https://rstudio.github.io/distill/
-
-
-## Captions
-
-Figure and table captions can be long, include formatted text, maths, references...
-The only limit is they cannot contain more than a single paragraph.
-Such captions must be stored in a separate paragraph starting with `(ref:ChunkName)`and a space.
-The text of the caption follows.
-
-In the figure chunk heading, the caption is called in the `fig.cap` field:
-
-  {r ChunkName, fig.cap="(ref:ChunkName)"}
-
-In tables, the `caption` argument of the `kable()` function is used the same way.
+Note that tables can't be shown on the first page of the PDF output of the Stylish Article template: it would conflict with the table of contents.
 
 
 ## Lists
@@ -312,9 +281,9 @@ Leave an empty line before and after the list, but not between its items.
 
 ## Math
 
-Equations in LaTeX format can be inserted in line, like $A=\pi r^2$ or isolated like $$e^{i \pi} = -1.$$
+Equations in LaTeX format can be inserted inline, like $A=\pi r^2$ or isolated like $$e^{i \pi} = -1.$$
 
-They can be numbered, see equation \@eq-disk), after adding them a label:
+They can be numbered, see @eq-disk, after adding them a label:
 
 $$
   A = \pi r^2.
@@ -323,7 +292,7 @@ $${#eq-disk}
 
 ## Cross-references
 
-Figures and tables have a label declared in their code snippet, starting with `fig:` or `tbl:`.
+Figures and tables have a label declared in their code chunk option `tbl.cap` or `fig.cap`, starting with `fig-` or `tbl-`.
 
 For equations, the label is added manually by the code `{#eq-xxx}` after the end of the equation.
 
@@ -334,16 +303,18 @@ In all cases, the call to the reference is made by `@`.
 
 ## Bibliography
 
-Bibliographic references included in the `references.bib` file can be called by `[@CitationKey]`, in parentheses [@CameronTrivedi2013], or without square brackets, in the text, as @CameronTrivedi2013.
+Bibliographic references included in the `.bib` file declared in the document header can be called by `[@CitationKey]`, in parentheses [@Xie2018], or without square brackets, in the text, as @Xie2016.
 
 
 The bibliography is processed by Pandoc when producing Word or HTML documents.
 The bibliographic style can be specified, by adding the line 
 
-    csl:file_name.csl
+    csl: file_name.csl
     
 in the document header and copying the _.csl_ style file to the project folder.
-More than a thousand styles are available[^5].
+More than a thousand styles are available[^5] and their URL can be used instead of copying the file, e.g.:
+
+    csl: https://www.zotero.org/styles/xxx
 
 [^5]: <https://github.com/citation-style-language/styles>
 
@@ -353,24 +324,6 @@ The style is declared in the header:
     biblio-style: chicago
 
 It can be changed as long as the appropriate `.bst` file (by default: `chicago.bst`) is included in the project. 
-
-
-## LaTeX preamble
-
-LaTeX commands can be added in the preamble of the produced LaTeX file, for example to load additional packages.
-These commands are in the `preamble:` section of the Markdown file header.
-
-The default commands allow to show the use of the hyphenation command:
-```
-\hyphenation%
-  {bio-di-ver-si-ty sap-lings}
-```
-
-Other commands can be added as needed.
-Warning:
-
-- Comments are not allowed.
-- Complex commands (e.g. `\renewenvironment`) must be entered on a single line otherwise they will be destroyed by knitr at the first knitting in HTML.
 
 
 ## Forcing line breaks
@@ -388,58 +341,58 @@ The HTML document ignores LaTeX commands.
 Languages are declared in the document header.
 
 The main language of the document (`lang`) changes the name of some elements, such as the table of contents.
-The change of language in the document (one of `otherlangs`) is managed in LaTeX but not in HTML by inserting on a new line the following command: 
+The change of language in the document (one of `otherlangs`) is managed in LaTeX (but not fully in HTML).
+
+For a single word, to ensure correct hyphenation in LaTeX, use the following command, ignored un HTML: 
+
+    \foreignlanguage{italian}{ciao}
+
+For a paragraph, to also ensure correct quotes and punctuation spacing, use 
+
 ```
-\selectlanguage{english}
+::: {lang=fr}
+"Bonjour" en français!
+:::
 ```
+
+to obtain:
+
+::: {lang=fr}
+"Bonjour" en français!
+:::
 
 The current language has an effect only in LaTeX output: a space is added before double punctuation in French, the size of spaces is larger at the beginning of sentences in English, etc.
-The `\selectlanguage` command is simply ignored in HTML.
 
-Language codes are used in the header, such as `en-US` but language names are necessary in\break`\selectlanguage{}`.
+Language codes are used in the header, such as `en-US` but language names are necessary in LaTeX.
 Name matches are listed in table 3 of the polyglossia package documentation[^7].
+Note that this template uses the "babel" package rather than "polyglossia".
 
 [^7]: <http://mirrors.ctan.org/macros/unicodetex/latex/polyglossia/polyglossia.pdf>
 
 
 ## Text color
 
-Our format makes applying color on inline text possible using the `[content]{color=<name>}` syntax. [This is a red example]{color=red}.
+This template includes the "color-text" filter for Quarto.
+It makes colored text possible using the `[content]{color=<name>}` syntax. 
+[This is a red example]{color=red}.
+Defined colors are blue, green and red.
+To add more colors, they must be defined in the document header in `format:`, 
+`stylisharticle-pdf:`, `header-includes:` .
+This is the code for "grey":
 
+```
+    \definecolor{grey}{RGB}{191, 191, 191}
+```
 
-# Document types
+They must also be included in a `.css` file declared in `format:`, 
+`stylisharticle-html:`
 
-This template is designed to work with the Stylish Article template in LaTeX and produce documents in PDF, HTML or Word format.
-Use the list of choices in the _Knit_ button to choose the output format.
+```
+    css: colors.css
+```
 
-## PDF Document
+In this css, colors are declared by 
 
-The document is formatted for self-archiving of well-formatted articles.
-
-## HTML document
-
-The GitBook template is optimized for on-screen reading.
-While writing, prefer knitting to HTML format for its speed of execution.
-A download button is available in the document menu bar: it will work if the document is also knitted in PDF format and if the file name is entered in the download field of the YAML header.
-
-The HMTL Document and all formats from the **rmdformats** packages are other possibilities.
-
-## Word document
-
-Its content can be formatted or copied into a template. 
-The standard text styles are "First Paragraph" and "Body Text".
-
-The advantage of the Word format is to produce a manuscript for journals that do not support LaTeX.
-The bibliographic style of the journal is most likely available in _.csl_ format, which minimizes manual preparation.
-
-The last line of this template (R code snippet) must be kept to display the title _References_ (to be translated into the document language if necessary) in HTML format.
-The level 1 title _References_ must be added manually to Word files.
-
-
-# Multilanguage {#sec-lang}
-
-\foreignlanguage{french}{"Bonjour" en Français!}
-
-::: {lang=it}
-> "Ciao" in italiano!
-:::
+```
+.color-grey {color: rgb(191, 191, 191);}
+```
