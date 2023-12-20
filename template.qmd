@@ -172,7 +172,7 @@ This template focuses on R but can be used with any other code language supporte
 ```{r}
 #| label: fig-pressure
 #| fig.cap: "Figure _title_ with maths : $\\pi$ and cross-reference to @tbl-kable"
-#| out.width: 40%
+#| out.width: 80%
 #| fig.env: "figure*"
 plot(pressure)
 ```
@@ -206,7 +206,7 @@ The `kable()` function in the _knitr_ package prepares the table for display and
 
 ```{r}
 #| label: tbl-kable
-#| tbl-cap: "Table _created_ by R, with $\\pi$. Not correctly formated as of Quarto v. 1.2."
+#| tbl-cap: "Table _created_ by R, with $\\pi$. Dummy legend to demonstrate formatting capacities."
 #| echo: TRUE
 #| tidy: false
 #| warning: FALSE
@@ -220,7 +220,6 @@ knitr::kable(
 ```
 
 The caption is specified by the `#| tbl-cap:` chunk option.
-At the moment, it is restricted to simple text without format, math or cross references (@tbl-kable), in contrast with figure captions (see @fig-pressure).
 
 Always use the `booktabs = TRUE` argument so that the separator lines are optimal in LaTeX.
 The `bootstrap_options = "striped"` option provides more readable tables in HTML.
@@ -231,7 +230,7 @@ Due to limits of the "longtable" package which does not support multi-column lay
 So, `longtable = TRUE` only means that the table will be one-column wide and located in the text if possible. 
 If not, it will float.
 
-To use the full width of the page, like @tbl-Paracou, `longtable` is set to `FALSE` and `table.envir = "table"` is added in the aguments of `kable()`.
+To use the full width of the page, like @tbl-Paracou, `longtable` is set to `FALSE` and `table.envir = "table"` is added in the arguments of `kable()`.
 
 ```{r}
 #| label: tbl-Paracou
@@ -261,6 +260,7 @@ knitr::kable(Intervention, longtable = FALSE, table.envir = "table", booktabs = 
 ```
 
 This table contains mathematics: the `escape = FALSE` argument is necessary in `kable()`.
+This feature is not yet supported by Quarto (v. 1.3, see [issue #555](https://github.com/quarto-dev/quarto-cli/issues/555)).
 
 Finally, the `full_width = TRUE` argument in `kable_styling()` adjusts the width of the table to the available width.
 It must be set for correct formatting of two-column tables in LaTeX.
@@ -398,3 +398,11 @@ In this css, colors are declared by
 ```
 .color-grey {color: rgb(191, 191, 191);}
 ```
+
+# Caveats
+
+Quarto does not yet support all features of R Markdown.
+Unsolved issues are listed here, as of version 1.3:
+
+- Tables do not support equations ([issue #555](https://github.com/quarto-dev/quarto-cli/issues/555))
+- Language-specific formats are only partially applied in LaTeX: in the example above, French quotes are used but no space is added before the exclamation point. This is due to  (see [pandoc issue #8283](https://github.com/jgm/pandoc/issues/8283)).
