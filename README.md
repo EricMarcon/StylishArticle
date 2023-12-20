@@ -13,15 +13,18 @@ You can use this as a template to create an article. To do this, use the followi
 quarto use template EricMarcon/StylishArticle
 ```
 
-This will install the extension and create an example qmd file and bibiography that you can use as a starting place for your article.
+This will create a new folder, install the extension and create an example `.qmd` file along with a bibliography that you can use as a starting place for your article.
 
 ## Installation For Existing Document
 
-You may also use this format with an existing Quarto project or document. From the quarto project or document directory, run the following command to install this format:
+You may also use this format within an existing Quarto project or document. From the quarto project or document directory, run the following command to install this format:
 
 ```bash
 quarto install extension EricMarcon/StylishArticle
 ```
+
+This will not install the template files so you will need to add the correct header to you own `.qmd` file manually.
+
 
 ## Usage
 
