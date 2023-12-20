@@ -406,3 +406,4 @@ Unsolved issues are listed here, as of version 1.3:
 
 - Tables do not support equations ([issue #555](https://github.com/quarto-dev/quarto-cli/issues/555))
 - Language-specific formats are only partially applied in LaTeX: in the example above, French quotes are used but no space is added before the exclamation point. This is due to  (see [pandoc issue #8283](https://github.com/jgm/pandoc/issues/8283)).
+- Figure width is not properly managed in two-column PDF documents [issue #855](https://github.com/quarto-dev/quarto-cli/issues/855))
