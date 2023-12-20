@@ -363,7 +363,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p></p>
-<p>This table contains mathematics: the <code>escape = FALSE</code> argument is necessary in <code>kable()</code>. This feature is not yet supported by Quarto (v. 1.3, see <a href="https://github.com/quarto-dev/quarto-cli/issues/555">issue #555</a>).</p>
+<p>This table contains mathematics: the <code>escape = FALSE</code> argument is necessary in <code>kable()</code>. This feature is not yet supported by Quarto in the HTML output (v. 1.3, see <a href="https://github.com/quarto-dev/quarto-cli/issues/555">issue #555</a>).</p>
 <p>Finally, the <code>full_width = TRUE</code> argument in <code>kable_styling()</code> adjusts the width of the table to the available width. It must be set for correct formatting of two-column tables in LaTeX.</p>
 <p>Note that tables can’t be shown on the first page of the PDF output of the Stylish Article template: it would conflict with the table of contents.</p>
 </section>
@@ -442,7 +442,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h1 data-number="4"><span class="header-section-number">4</span> Caveats</h1>
 <p>Quarto does not yet support all features of R Markdown. Unsolved issues are listed here, as of version 1.3:</p>
 <ul>
-<li>Tables do not support equations (<a href="https://github.com/quarto-dev/quarto-cli/issues/555">issue #555</a>)</li>
+<li>Tables do not support equations in HTML (<a href="https://github.com/quarto-dev/quarto-cli/issues/555">issue #555</a>)</li>
 <li>Language-specific formats are only partially applied in LaTeX: in the example above, French quotes are used but no space is added before the exclamation point. This is due to (see <a href="https://github.com/jgm/pandoc/issues/8283">pandoc issue #8283</a>).</li>
 <li>Figure width is not properly managed in two-column PDF documents <a href="https://github.com/quarto-dev/quarto-cli/issues/855">issue #855</a>)</li>
 </ul>
