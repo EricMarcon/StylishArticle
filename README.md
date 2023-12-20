@@ -1,5 +1,5 @@
 ![stability-wip](https://img.shields.io/badge/stability-work_in_progress-lightgrey.svg)
-![R-CMD-check](https://github.com/EricMarcon/divent/workflows/R-CMD-check/badge.svg)
+[![Render and Publish](https://github.com/EricMarcon/StylishArticle/actions/workflows/quarto-publish.yml/badge.svg)](https://github.com/EricMarcon/StylishArticle/actions/workflows/quarto-publish.yml)
 
 # Stylish Article
 
