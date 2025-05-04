@@ -61,23 +61,33 @@ corrauthorlabel: Corresponding Author
 # Do not modify unless you don't use R: then, delete this chunk.
 # Installation of R packages if necessary
 install_packages <- function(packages) {
-  install_package <- function(package) {
-    if (!package %in% installed.packages()[, 1]) {
-      install.packages(package, repos="https://cran.rstudio.com/")
-    }
-  }
-  invisible(sapply(packages, install_package))
+  invisible(
+    sapply(
+      packages, 
+      FUN = function(package) {
+        if (!package %in% installed.packages()[, 1]) {
+          install.packages(package, repos = "https://cran.rstudio.com/")
+        }
+      }
+    )
+  )
 }
 
 # Basic packages
 install_packages(c("knitR", "formatR", "kableExtra"))
 
 # Chunk font size hook: allows size='small' or any valid Latex font size in chunk options
-def.chunk.hook  <- knitr::knit_hooks$get("chunk")
-knitr::knit_hooks$set(chunk = function(x, options) {
-  x <- def.chunk.hook(x, options)
-  ifelse(options$size != "normalsize", paste0("\n \\", options$size,"\n\n", x, "\n\n \\normalsize"), x)
-})
+def.chunk.hook <- knitr::knit_hooks$get("chunk")
+knitr::knit_hooks$set(
+  chunk = function(x, options) {
+    x <- def.chunk.hook(x, options)
+    ifelse(
+      options$size == "normalsize", 
+      yes = x,
+      no = paste0("\n \\", options$size, "\n\n", x, "\n\n \\normalsize")
+    )
+  }
+)
 ```
 
 ```{r}
@@ -101,15 +111,17 @@ knitr::opts_chunk$set(
   size = "scriptsize", 
   # Select PDF figures in PDF output if PDF file exists beside PNG file
   knitr.graphics.auto_pdf = TRUE
-  )
+)
 # Text width of R functions output
 options(width = 50)
 
 # ggplot style
 library("tidyverse")
 theme_set(theme_bw())
-theme_update(panel.background = element_rect(fill="transparent", colour = NA),
-             plot.background = element_rect(fill="transparent", colour = NA))
+theme_update(
+  panel.background = element_rect(fill = "transparent", colour = NA),
+  plot.background = element_rect(fill = "transparent", colour = NA)
+)
 knitr::opts_chunk$set(dev.args = list(bg = "transparent"))
 
 # Random seed
@@ -211,10 +223,17 @@ The `kable()` function in the _knitr_ package prepares the table for display and
 #| tidy: false
 #| warning: FALSE
 
-names(iris) <- c("Sepal length", "Width", "Petal length", 
-                 "Width", "Species")
-knitr::kable(
-  head(iris), longtable = TRUE, booktabs = TRUE
+names(iris) <- c(
+  "Sepal length", 
+  "Width", 
+  "Petal length", 
+  "Width", 
+  "Species"
+)
+head(iris) %>% 
+kableExtra::kbl(
+  longtable = TRUE, 
+  booktabs = TRUE
 ) %>%
   kableExtra::kable_styling(bootstrap_options = "striped")
 ```
@@ -239,24 +258,40 @@ To use the full width of the page, like @tbl-Paracou, `longtable` is set to `FAL
 #| warning: false
 
 Intervention <- data.frame(
-  Treatment=c("Control", "T1", "T2", "T3"),
-  Timber=c("", 
-           "DBH $\\geq$ 50 cm, commercial species, $\\approx$ 10 trees/ha", 
-           "DBH $\\geq$ 50 cm, commercial species, $\\approx$ 10 trees/ha",
-           "DBH $\\geq$ 50 cm, commercial species, $\\approx$ 10 trees/ha"),
-  Thinning=c("", 
-             "", 
-             "DBH $\\geq$ 40 cm, non-valuable species, $\\approx$ 30 trees/ha", 
-             "DBH $\\geq$ 50 cm, non-valuable species, $\\approx$ 15 trees/ha  "),
-  Fuelwood=c("", 
-             "", 
-             "", 
-             "40 cm $\\leq$ DBH $\\leq$ 50 cm, non-valuable species, $\\approx$ 15 trees/ha"),
-  AGBLost=c(0, "$[12\\%-33\\%]$", "$[33\\%-56\\%]$", "$[35\\%-56\\%]$")
+  Treatment = c("Control", "T1", "T2", "T3"),
+  Timber = c(
+    "", 
+    "DBH $\\geq$ 50 cm, commercial species, $\\approx$ 10 trees/ha", 
+    "DBH $\\geq$ 50 cm, commercial species, $\\approx$ 10 trees/ha",
+    "DBH $\\geq$ 50 cm, commercial species, $\\approx$ 10 trees/ha"
+  ),
+  Thinning = c(
+    "", 
+    "", 
+    "DBH $\\geq$ 40 cm, non-valuable species, $\\approx$ 30 trees/ha", 
+    "DBH $\\geq$ 50 cm, non-valuable species, $\\approx$ 15 trees/ha  "
+  ),
+  Fuelwood = c(
+    "", 
+    "", 
+    "", 
+    "40 cm $\\leq$ DBH $\\leq$ 50 cm, non-valuable species, $\\approx$ 15 trees/ha"
+  ),
+  AGBLost = c(0, "$[12\\%-33\\%]$", "$[33\\%-56\\%]$", "$[35\\%-56\\%]$")
 )
 names(Intervention)[5] <- "\\%AGB lost"
-knitr::kable(Intervention, longtable = FALSE, table.envir = "table", booktabs = TRUE, escape = FALSE) %>%
-  kableExtra::kable_styling(bootstrap_options = "striped", full_width = TRUE)
+Intervention %>% 
+  kableExtra::kbl(
+    longtable = FALSE, 
+    table.envir = "table", 
+    booktabs = TRUE, 
+    # Special characters in the table
+    escape = FALSE
+  ) %>%
+  kableExtra::kable_styling(
+    bootstrap_options = "striped", 
+    full_width = TRUE
+  )
 ```
 
 This table contains mathematics: the `escape = FALSE` argument is necessary in `kable()`.
