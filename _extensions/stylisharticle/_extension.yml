@@ -11,8 +11,9 @@ contributes:
       toc-depth: 2
     pdf:
       documentclass: stylisharticle
-      fontsize: 10pt
+      fontsize: 11pt
       colorlinks: true
+      csquotes: true
       urlcolor: blue
       toc-depth: 3
       cite-method: natbib
