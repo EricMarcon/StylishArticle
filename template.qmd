@@ -185,9 +185,9 @@ This template focuses on R but can be used with any other code language supporte
 
 ```{r}
 #| label: fig-pressure
-#| fig.cap: "Figure _title_ with maths : $\\pi$ and cross-reference to @tbl-kable"
+#| fig-cap: "Figure _title_ with maths : $\\pi$ and cross-reference to @tbl-kable"
 #| out-width: 80%
-#| fig.env: "figure*"
+#| fig-env: "figure*"
 plot(pressure)
 ```
 
@@ -196,13 +196,13 @@ A label is associated with each figure: its name is given in the `#| label:` opt
 It must start with `fig-`.
 Cross-references are made with the command `@label`, e.g.: `@fig-pressure`.
 
-In PDF, a figure can use the full width of the page by adding the following options to the header of the code chunk that generates it: `fig.env="figure*"`.
+In PDF, a figure can use the full width of the page by adding the following options to the header of the code chunk that generates it: `fig-env="figure*"`.
 
 Existing figures are integrated into a piece of code by the `include_graphics()` function, see @fig-logo.
 
 ```{r}
 #| label: fig-logo
-#| fig.cap: "Logo"
+#| fig-cap: "Logo"
 #| out-width: 30%
 knitr::include_graphics("images/logo.png")
 ```
@@ -233,10 +233,13 @@ names(iris) <- c(
 )
 head(iris) %>% 
   kableExtra::kbl(
+    # Tables can be longer than a page
     longtable = TRUE, 
+    # Nice separators
     booktabs = TRUE
   ) %>%
   kableExtra::kable_styling(
+    # Striped rows for readability
     bootstrap_options = "striped"
   )
 ```
@@ -252,7 +255,7 @@ Due to limits of the "longtable" package which does not support multi-column lay
 So, `longtable = TRUE` only means that the table will be one-column wide and located in the text if possible. 
 If not, it will float.
 
-To use the full width of the page, like @tbl-Paracou, `longtable` is set to `FALSE` and `table.envir = "table"` is added in the arguments of `kable()`.
+To use the full width of the page, like @tbl-Paracou, `longtable` is set to `FALSE` and `table.envir = "table"` is added in the arguments of `kbl()`.
 
 ```{r}
 #| label: tbl-Paracou
@@ -284,14 +287,18 @@ Intervention <- data.frame(
 names(Intervention)[5] <- "\\%AGB lost"
 Intervention %>% 
   kableExtra::kbl(
+    # Full width table
     longtable = FALSE, 
     table.envir = "table", 
+    # Nice separators
     booktabs = TRUE, 
     # Special characters in the table
     escape = FALSE
   ) %>%
   kableExtra::kable_styling(
+    # Striped rows for readability
     bootstrap_options = "striped", 
+    # Full width table
     full_width = TRUE
   )
 ```
@@ -331,7 +338,7 @@ $${#eq-disk}
 
 ## Cross-references
 
-Figures and tables have a label declared in their code chunk option `tbl.cap` or `fig.cap`, starting with `fig-` or `tbl-`.
+Figures and tables have a label declared in their code chunk option `tbl-cap` or `fig-cap`, starting with `fig-` or `tbl-`.
 
 For equations, the label is added manually by the code `{#eq-xxx}` after the end of the equation.
 
