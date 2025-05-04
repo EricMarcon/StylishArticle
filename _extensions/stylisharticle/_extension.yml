@@ -1,6 +1,6 @@
 title: Stylish Article
 author: Eric Marcon
-version: 1.0.0
+version: 1.0.1
 contributes:
   formats:
     common:
@@ -14,7 +14,6 @@ contributes:
       fontsize: 10pt
       colorlinks: true
       urlcolor: blue
-      csquotes: true
       toc-depth: 3
       cite-method: natbib
       header-includes: |
