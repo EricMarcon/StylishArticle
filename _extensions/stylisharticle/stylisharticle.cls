@@ -17,7 +17,7 @@
 % ---------------------------------------------------------------------
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{stylisharticle}[03/02/2023, v. 3.0]
+\ProvidesClass{stylisharticle}[05/05/2025, v. 3.1]
 \RequirePackage{ifthen}
 \RequirePackage{calc}
 \AtEndOfClass{\RequirePackage{microtype}}
@@ -98,13 +98,13 @@
 \usepackage{titletoc}
 \contentsmargin{0cm}
 \titlecontents{section}[\tocsep]
-  {\addvspace{-2pt}\small\bfseries\sffamily}
+  {\addvspace{-1pt}\small\bfseries\sffamily}
   {\contentslabel[\thecontentslabel]{\tocsep}}
   {}
   {\hfill\thecontentspage}
   []
 \titlecontents{subsection}[\tocsep]
-  {\addvspace{-4pt}\small\sffamily}
+  {\addvspace{-2pt}\small\sffamily}
   {\contentslabel[\thecontentslabel]{\tocsep}}
   {}
   {\ \titlerule*[.5pc]{.}\ \thecontentspage}
