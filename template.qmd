@@ -47,6 +47,7 @@ otherlangs: [fr-FR, it]
 execute:
   # Show the code in the output
   echo: false
+  warning: false
 # Template specific
 journalinfo: "Publication reference"
 archive: "DOI: xxx/xx"
@@ -400,13 +401,6 @@ to obtain:
 
 The current language has an effect only in LaTeX output: a space is added before double punctuation in French, the size of spaces is larger at the beginning of sentences in English, etc.
 
-Language codes are used in the header, such as `en-US` but language names are necessary in LaTeX.
-Name matches are listed in table 3 of the polyglossia package documentation[^7].
-Note that this template uses the "babel" package rather than "polyglossia".
-
-[^7]: <http://mirrors.ctan.org/macros/unicodetex/latex/polyglossia/polyglossia.pdf>
-
-
 ## Text color
 
 This template includes the "color-text" filter for Quarto.
@@ -441,4 +435,3 @@ Unsolved issues are listed here, as of version 1.3:
 
 - Tables do not support equations in HTML ([issue #555](https://github.com/quarto-dev/quarto-cli/issues/555))
 - Language-specific formats are only partially applied in LaTeX: in the example above, French quotes are used but no space is added before the exclamation point. This is due to  (see [pandoc issue #8283](https://github.com/jgm/pandoc/issues/8283)).
-- Figure width is not properly managed in two-column PDF documents [issue #855](https://github.com/quarto-dev/quarto-cli/issues/855))
