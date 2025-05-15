@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-GB" xml:lang="en-GB"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.29">
+<meta name="generator" content="quarto-1.7.31">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -69,7 +69,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="template_files/libs/quarto-html/tippy.umd.min.js"></script>
 <script src="template_files/libs/quarto-html/anchor.min.js"></script>
 <link href="template_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="template_files/libs/quarto-html/quarto-syntax-highlighting-0815c480559380816a4d1ea211a47e91.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="template_files/libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="template_files/libs/bootstrap/bootstrap.min.js"></script>
 <link href="template_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="template_files/libs/bootstrap/bootstrap-2951145683ec20aa79dce04e66ecf2a8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
@@ -218,7 +218,7 @@ window.Quarto = {
 </section>
 <section id="code" class="level1 page-columns page-full" data-number="3">
 <h1 data-number="3"><span class="header-section-number">3</span> Code</h1>
-<p>The main features of Markdown are summarized here. The full documentation is online<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>.</p>
+<p>The main features of Markdown are summarized here. The full documentation is on-line<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>.</p>
 <div class="no-row-height column-margin column-container"><div id="fn4"><p><sup>4</sup>&nbsp;<a href="https://quarto.org/docs/authoring/markdown-basics.html/" class="uri">https://quarto.org/docs/authoring/markdown-basics.html/</a></p></div></div><section id="r-and-other-code" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="r-and-other-code"><span class="header-section-number">3.1</span> R and other code</h2>
 <p>R code is included in code chunks:</p>
@@ -257,7 +257,7 @@ Figure&nbsp;1: Figure <em>title</em> with maths : <span class="math inline">\(\p
 </div>
 <p></p>
 <p>Figures can be created by R code (<a href="#fig-pressure" class="quarto-xref">Figure&nbsp;1</a>). A label is associated with each figure: its name is given in the <code>#| label:</code> option of the chunk that produces it. It must start with <code>fig-</code>. Cross-references are made with the command <code>@label</code>, e.g.: <code>@fig-pressure</code>.</p>
-<p>In PDF, a figure can use the full width of the page by adding the following options to the header of the code chunk that generates it: <code>fig-env="figure*"</code>.</p>
+<p>In PDF, a figure can use the full width of the page by adding the options <code>fig-env="figure*"</code> to the header of the code chunk that generates it.</p>
 <p>Existing figures are integrated into a piece of code by the <code>include_graphics()</code> function, see <a href="#fig-logo" class="quarto-xref">Figure&nbsp;2</a>.</p>
 <p></p>
 <div class="cell">
@@ -354,7 +354,7 @@ Table&nbsp;1: Table <em>created</em> by R, with <span class="math inline">\(\pi\
 <p>The caption is specified by the <code>#| tbl-cap:</code> chunk option.</p>
 <p>Always use the <code>booktabs = TRUE</code> argument so that the separator lines are optimal in LaTeX. The <code>bootstrap_options = "striped"</code> option provides more readable tables in HTML.</p>
 <p>In LaTeX, <code>longtable = TRUE</code> selects the “longtable” package to format tables. Such tables are placed in the text. Due to limits of the “longtable” package which does not support multi-column layouts, the Stylish Article template uses a workaround that does not allow really long tables to be split into several columns or pages. So, <code>longtable = TRUE</code> only means that the table will be one-column wide and located in the text if possible. If not, it will float.</p>
-<p>To use the full width of the page, like <a href="#tbl-Paracou" class="quarto-xref">Table&nbsp;2</a>, <code>longtable</code> is set to <code>FALSE</code> and <code>table.envir = "table"</code> is added in the arguments of <code>kbl()</code>.</p>
+<p>To use the full width of the page, like <a href="#tbl-Paracou" class="quarto-xref">Table&nbsp;2</a>, <code>longtable</code> is set to <code>FALSE</code> in the arguments of <code>kbl()</code>. The option <code>full_width = TRUE</code> in <code>kable_styling()</code> allows adjusting the width of the table to that of the page.</p>
 <p></p>
 <div class="cell">
 <div id="tbl-Paracou" class="cell quarto-float quarto-figure quarto-figure-center anchored">
@@ -430,7 +430,7 @@ Table&nbsp;2: Large table with maths, on two columns
 </section>
 <section id="math" class="level2" data-number="3.5">
 <h2 data-number="3.5" class="anchored" data-anchor-id="math"><span class="header-section-number">3.5</span> Math</h2>
-<p>Equations in LaTeX format can be inserted inline, like <span class="math inline">\(A=\pi r^2\)</span> or isolated like <span class="math display">\[e^{i \pi} = -1.\]</span></p>
+<p>Equations in LaTeX format can be inserted inline, like <span class="math inline">\(A = \pi r^2\)</span> or isolated like <span class="math display">\[e^{i \pi} = -1.\]</span></p>
 <p>They can be numbered, see <a href="#eq-disk" class="quarto-xref">Equation&nbsp;1</a>, after adding them a label:</p>
 <p><span id="eq-disk"><span class="math display">\[
   A = \pi r^2.
@@ -489,8 +489,9 @@ Table&nbsp;2: Large table with maths, on two columns
 <h1 data-number="4"><span class="header-section-number">4</span> Caveats</h1>
 <p>Quarto does not yet support all features of R Markdown. Unsolved issues are listed here, as of version 1.7:</p>
 <ul>
-<li>Tables do not support equations in HTML (<a href="https://github.com/quarto-dev/quarto-cli/issues/555">issue #555</a>)</li>
-<li>Language-specific formats are only partially applied in LaTeX: in the example above, French quotes are not applied. The format of the quotes follows the main language of the document.</li>
+<li>The <code>column</code> options in code chunks or <code>{.column-xxx}</code> div’s can’t be used in this template. They interfere with the two-column LaTeX layout. The template relies on other techniques to print full-width figures and tables.</li>
+<li>Tables do not support equations in HTML (<a href="https://github.com/quarto-dev/quarto-cli/issues/555">issue #555</a>). The issue comes from the <code>kableExtra</code> R package.</li>
+<li>Language-specific formats are only partially applied in LaTeX: in the example above, French quotes are not applied. The format of the quotes follows the main language of the document. This seems to be due to the design of the <em>csquote</em> LaTeX package.</li>
 </ul>
 </section>
 
