@@ -45,9 +45,15 @@ otherlangs: [fr-FR, it]
 # Code options 
 # https://quarto.org/docs/computations/execution-options.html#output-options
 execute:
+  # show code chunk output
+  include: true
   # Show the code in the output
   echo: false
+  # Show warnings
   warning: false
+  # Cache code results
+  cache: false
+  # option messages is in the Option chunk for R
 # Template specific
 journalinfo: "Publication reference"
 archive: "DOI: xxx/xx"
@@ -104,6 +110,8 @@ install_packages(packages)
 
 # knitr options (https://yihui.org/knitr/options/)
 knitr::opts_chunk$set(
+  # Messages from packages
+  message = FALSE,
   # Code chunk automatic format if tidy is TRUE
   tidy = TRUE, 
   # Tidy code options: remove blank lines and cut lines after 50 characters
