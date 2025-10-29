@@ -15,7 +15,7 @@ author:
   - name: John Doe
     affiliations:
       - name: Dummy Organization
-        department: Scientifif Department
+        department: Scientific Department
         address: Somewhere
         city: City
         country: Country
