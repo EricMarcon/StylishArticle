@@ -59,7 +59,26 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="index_files/libs/clipboard/clipboard.min.js"></script>
@@ -137,6 +156,7 @@ window.Quarto = {
   <li><a href="#text-color" id="toc-text-color" class="nav-link" data-scroll-target="#text-color"><span class="header-section-number">3.10</span> Text color</a></li>
   </ul></li>
   <li><a href="#caveats" id="toc-caveats" class="nav-link" data-scroll-target="#caveats"><span class="header-section-number">4</span> Caveats</a></li>
+  <li><a href="#bibliography" id="toc-bibliography" class="nav-link" data-scroll-target="#bibliography">References</a></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="index.pdf"><i class="bi bi-file-pdf"></i>PDF (stylisharticle)</a></li></ul></div></nav>
 </div>
@@ -159,9 +179,6 @@ window.Quarto = {
         <p class="affiliation">
             Dummy Organization
           </p>
-        <p class="affiliation">
-            Demo Journal
-          </p>
       </div>
     <div class="quarto-title-meta-contents">
     <p class="author">His Friend </p>
@@ -169,7 +186,7 @@ window.Quarto = {
   <div class="quarto-title-meta-contents">
       </div>
     <div class="quarto-title-meta-contents">
-    <p class="author"><a href="https://www.x.com">Athird One</a> <a href="mailto:at@x.com" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> </p>
+    <p class="author"><a href="https://www.x.com">Athird One</a> <a href="mailto:at1@x.com" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> </p>
   </div>
   <div class="quarto-title-meta-contents">
         <p class="affiliation">
@@ -239,17 +256,17 @@ window.Quarto = {
 <p></p>
 <p>Similar chunks support other languages such as Python. This template focuses on R but can be used with any other code language supported by Quarto.</p>
 </section>
-<section id="figures" class="level2" data-number="3.2">
+<section id="figures" class="level2 page-columns page-full" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="figures"><span class="header-section-number">3.2</span> Figures</h2>
 <p></p>
-<div class="cell">
-<div class="cell-output-display">
-<div id="fig-pressure" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-env="figure*">
-<figure class="quarto-float quarto-float-fig figure">
+<div class="cell page-columns page-full">
+<div class="cell-output-display page-columns page-full">
+<div id="fig-pressure" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-fig-env="figure*">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-pressure-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="index_files/figure-html/fig-pressure-1.png" class="img-fluid figure-img" style="width:80.0%" data-fig-env="figure*">
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-pressure-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-pressure-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;1: Figure <em>title</em> with maths : <span class="math inline">\(\pi\)</span> and cross-reference to <a href="#tbl-kable" class="quarto-xref">Table&nbsp;1</a>
 </figcaption>
 </figure>
@@ -261,14 +278,14 @@ Figure&nbsp;1: Figure <em>title</em> with maths : <span class="math inline">\(\p
 <p>In PDF, a figure can use the full width of the page by adding the options <code>fig-env="figure*"</code> to the header of the code chunk that generates it.</p>
 <p>Existing figures are integrated into a piece of code by the <code>include_graphics()</code> function, see <a href="#fig-logo" class="quarto-xref">Figure&nbsp;2</a>.</p>
 <p></p>
-<div class="cell">
-<div class="cell-output-display">
-<div id="fig-logo" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
+<div class="cell page-columns page-full">
+<div class="cell-output-display page-columns page-full">
+<div id="fig-logo" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-logo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/logo.png" class="img-fluid figure-img" style="width:30.0%">
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-logo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-logo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;2: Logo
 </figcaption>
 </figure>
@@ -278,20 +295,17 @@ Figure&nbsp;2: Logo
 <p></p>
 <p>Systematically place these files in the <code>images</code> folder for the automation of GitHub pages.</p>
 </section>
-<section id="tables" class="level2" data-number="3.3">
+<section id="tables" class="level2 page-columns page-full" data-number="3.3">
 <h2 data-number="3.3" class="anchored" data-anchor-id="tables"><span class="header-section-number">3.3</span> Tables</h2>
 <p>The horizontal <code>-</code> and vertical separators <code>|</code> allow you to draw a table according to Markdown syntax, but this is not the best method in R.</p>
 <p>Tables can also be produced by R code. The content of the table is in a dataframe. The <code>kbl()</code> function prepares the table for display and passes the result to <code>kable_styling()</code> for final formatting.</p>
 <p></p>
-<div class="cell">
-<div id="tbl-kable" class="cell quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-kable-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;1: Table <em>created</em> by R, with <span class="math inline">\(\pi\)</span>. Dummy legend to demonstrate formatting capacities.
-</figcaption>
+<div class="cell page-columns page-full">
+<div id="tbl-kable" class="cell quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-tbl figure page-columns page-full">
 <div aria-describedby="tbl-kable-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<table class="table table-striped do-not-create-environment cell caption-top table-sm small">
+<table class="table table-striped do-not-create-environment cell table-sm small">
 <thead>
 <tr class="header">
 <th style="text-align: right;" data-quarto-table-cell-role="th">Sepal length</th>
@@ -348,6 +362,9 @@ Table&nbsp;1: Table <em>created</em> by R, with <span class="math inline">\(\pi\
 </table>
 </div>
 </div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-tbl margin-caption" id="tbl-kable-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: Table <em>created</em> by R, with <span class="math inline">\(\pi\)</span>. Dummy legend to demonstrate formatting capacities.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -357,15 +374,12 @@ Table&nbsp;1: Table <em>created</em> by R, with <span class="math inline">\(\pi\
 <p>In LaTeX, <code>longtable = TRUE</code> selects the “longtable” package to format tables. Such tables are placed in the text. Due to limits of the “longtable” package which does not support multi-column layouts, the Stylish Article template uses a workaround that does not allow really long tables to be split into several columns or pages. So, <code>longtable = TRUE</code> only means that the table will be one-column wide and located in the text if possible. If not, it will float.</p>
 <p>To use the full width of the page, like <a href="#tbl-Paracou" class="quarto-xref">Table&nbsp;2</a>, <code>longtable</code> is set to <code>FALSE</code> in the arguments of <code>kbl()</code>. The option <code>full_width = TRUE</code> in <code>kable_styling()</code> allows adjusting the width of the table to that of the page.</p>
 <p></p>
-<div class="cell">
-<div id="tbl-Paracou" class="cell quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-Paracou-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;2: Large table with maths, on two columns
-</figcaption>
+<div class="cell page-columns page-full">
+<div id="tbl-Paracou" class="cell quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-tbl figure page-columns page-full">
 <div aria-describedby="tbl-Paracou-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<table class="table table-striped do-not-create-environment cell caption-top table-sm small">
+<table class="table table-striped do-not-create-environment cell table-sm small">
 <thead>
 <tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th">Treatment</th>
@@ -408,6 +422,9 @@ Table&nbsp;2: Large table with maths, on two columns
 </table>
 </div>
 </div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-tbl margin-caption" id="tbl-Paracou-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;2: Large table with maths, on two columns
+</figcaption>
 </figure>
 </div>
 </div>
@@ -446,7 +463,7 @@ Table&nbsp;2: Large table with maths, on two columns
 </section>
 <section id="bibliography" class="level2 page-columns page-full" data-number="3.7">
 <h2 data-number="3.7" class="anchored" data-anchor-id="bibliography"><span class="header-section-number">3.7</span> Bibliography</h2>
-<p>Bibliographic references included in the <code>.bib</code> file declared in the document header can be called by <code>[@CitationKey]</code>, in parentheses <span class="citation" data-cites="Xie2018">(Xie et al. 2018)</span>, or without square brackets, in the text, as <span class="citation" data-cites="Xie2016">Xie (2016)</span>.</p>
+<p>Bibliographic references included in the <code>.bib</code> file declared in the document header can be called by <code>[@CitationKey]</code>, in parentheses <span class="citation" data-cites="Xie2018">(<a href="#ref-Xie2018" role="doc-biblioref">Xie et al. 2018</a>)</span>, or without square brackets, in the text, as <span class="citation" data-cites="Xie2016">Xie (<a href="#ref-Xie2016" role="doc-biblioref">2016</a>)</span>.</p>
 <p>The bibliography is processed by Pandoc when producing Word or HTML documents. The bibliographic style can be specified, by adding the line</p>
 <pre><code>csl: file_name.csl</code></pre>
 <p>in the document header and copying the <em>.csl</em> style file to the project folder. More than a thousand styles are available<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a> and their URL can be used instead of copying the file, e.g.:</p>
@@ -495,9 +512,20 @@ Table&nbsp;2: Large table with maths, on two columns
 <li>Language-specific formats are only partially applied in LaTeX: in the example above, French quotes are not applied. The format of the quotes follows the main language of the document. This seems to be due to the design of the <em>csquote</em> LaTeX package.</li>
 </ul>
 </section>
+<section id="bibliography" class="level1 unnumbered">
 
 
-</main>
+</section>
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-Xie2016" class="csl-entry" role="listitem">
+Xie, Yihui. 2016. <em>Bookdown: Authoring Books and Technical Documents with <span>R</span> Markdown</em>. Chapman; Hall/CRC. <a href="https://github.com/rstudio/bookdown">https://github.com/rstudio/bookdown</a>.
+</div>
+<div id="ref-Xie2018" class="csl-entry" role="listitem">
+Xie, Yihui, J. J. Allaire, and Garrett Grolemund. 2018. <em>R Markdown: The Definitive Guide</em>. Chapman; Hall/CRC. <a href="https://bookdown.org/yihui/rmarkdown">https://bookdown.org/yihui/rmarkdown</a>.
+</div>
+</div></section></div></main>
 <!-- /main column -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
