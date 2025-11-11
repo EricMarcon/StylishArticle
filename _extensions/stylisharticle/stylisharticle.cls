@@ -191,16 +191,3 @@
 
 \newlength{\tocsep}                 % Table of Contents format
 \setlength\tocsep{1.5pc}            % Sets the indentation of the sections in the table of contents
-
-% -------------- Font size
-% R code: scriptsize
-\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}, fontsize=\scriptsize}
-% R output: footnotesize
-\makeatletter
-\patchcmd{\@verbatim}
-  {\verbatim@font}
-  {\verbatim@font\footnotesize}
-  {}{}
-\makeatother
-% References
-\renewcommand*{\bibfont}{\footnotesize}
