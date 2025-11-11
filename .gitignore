@@ -14,6 +14,7 @@
 /*.log
 /*.pdf
 /*.tex
+/stylisharticle.cls
 
 # Cache
 /*_files/
