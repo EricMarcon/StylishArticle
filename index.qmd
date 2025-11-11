@@ -20,14 +20,13 @@ author:
         city: City
         country: Country
         postal-code: 9999
-      - Demo Journal
     orcid: 0000-0000-0000-0000
     email: JD@example.org
     url: https://example.org/
   - name: His Friend
   - name: Athird One
     corresponding: true
-    email: at@x.com
+    email: at1@x.com
     url: https://www.x.com
     affiliations:
       - name: Third Affiliation
@@ -64,7 +63,6 @@ corrauthorlabel: Corresponding Author
 
 ```{r}
 #| label: DoNotModify
-#| include: false
 ### Utilities for R. 
 # Do not modify unless you don't use R: then, delete this chunk.
 # Installation of R packages if necessary
@@ -74,7 +72,11 @@ install_packages <- function(packages) {
       packages, 
       FUN = function(package) {
         if (!package %in% installed.packages()[, 1]) {
-          install.packages(package, repos = "https://cran.rstudio.com/")
+          install.packages(
+            package, 
+            repos = "https://cran.rstudio.com/", 
+            quiet = TRUE
+          )
         }
       }
     )
@@ -100,7 +102,6 @@ knitr::knit_hooks$set(
 
 ```{r}
 #| label: Options
-#| include: false
 ### Customized R options for this document
 # Delete this chunk if you don't use R
 

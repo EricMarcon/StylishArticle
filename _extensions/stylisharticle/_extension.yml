@@ -1,6 +1,6 @@
 title: Stylish Article
 author: Eric Marcon
-version: 1.1.1
+version: 1.2.0
 contributes:
   formats:
     common:
@@ -37,5 +37,6 @@ contributes:
       theme: custom.scss
       csl: https://www.zotero.org/styles/chicago-author-date
       reference-location: margin
-      citation-location: margin
-      suppress-bibliography: true
+      cap-location: margin
+      citation-location: document
+      suppress-bibliography: false
