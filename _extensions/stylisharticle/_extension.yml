@@ -1,6 +1,6 @@
 title: Stylish Article
 author: Eric Marcon
-version: 1.2.0
+version: 1.2.1
 contributes:
   formats:
     common:

@@ -40,24 +40,24 @@ $for(by-author)$
   $for(by-author.affiliations)$
     \affiliation{%
       \textsuperscript{$it.number$}%
-      $if(it.name)$$it.name$, $endif$%
-      $if(it.dptuniv)$$it.dptuniv$, $endif$%
-      $if(it.address)$$it.address$, $endif$%
-      $if(it.city)$$it.city$, $endif$%
-      $if(it.region)$$it.address$, $endif$%
-      $if(it.country)$$it.country$, $endif$%
-      $if(it.postal-code)$$it.postal-code$, $endif$%
-      $if(it.url)$$it.url$$endif$%
+      $if(it.name)$$it.name$$endif$%
+      $if(it.department)$, $it.department$$endif$%
+      $if(it.address)$, $it.address$$endif$%
+      $if(it.city)$, $it.city$$endif$%
+      $if(it.region)$, $it.region$$endif$%
+      $if(it.country)$, $it.country$$endif$%
+      $if(it.postal-code)$, $it.postal-code$$endif$%
+      $if(it.url)$, $it.url$$endif$%
     }
   $endfor$
 $endfor$
 
 % Corresponding author
 $for(by-author)$
-  $if(it.attributes.corresponding)$
+  $if(it.attributes.corresponding)$%
     \affiliation{%
-      *\textbf{$corrauthorlabel$}: $it.email$$if(it.url)$, $it.url$$endif$%
-    }
+      *\textbf{$corrauthorlabel$}: $it.email$$if(it.url)$, \url{$it.url$}$endif$%
+    }%
   $endif$%
 $endfor$
 
