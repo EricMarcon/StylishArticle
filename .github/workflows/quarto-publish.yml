@@ -1,12 +1,14 @@
 on:
   push:
-    branches: main
+    branches: [main, master]
 
 name: Render and Publish
 
 jobs:
   build-deploy:
     runs-on: macOS-latest
+    permissions:
+      contents: write
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
@@ -24,8 +26,10 @@ jobs:
           options(install.packages.check.source = "no")
           install.packages(c("rmarkdown", "knitr"))
         shell: Rscript {0}
-      - name: Publish to GitHub Pages (and render)
+      - name: Publish to GitHub Pages
         uses: quarto-dev/quarto-actions/publish@v2
         with:
           path: index.qmd
           target: gh-pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
