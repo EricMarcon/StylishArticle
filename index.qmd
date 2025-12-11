@@ -37,7 +37,6 @@ keywords: [template, demo]
 # Bibliography
 reference-section-title: References
 bibliography: references.bib
-biblio-style: chicago
 # Language
 lang: en-GB
 otherlangs: [fr-FR, it]

@@ -1,6 +1,6 @@
 title: Stylish Article
 author: Eric Marcon
-version: 1.2.1
+version: 1.3.0
 contributes:
   formats:
     common:
@@ -16,7 +16,6 @@ contributes:
       csquotes: true
       urlcolor: blue
       toc-depth: 3
-      cite-method: natbib
       header-includes: |
         \definecolor{red}{RGB}{255, 0, 0}
         \definecolor{green}{RGB}{0, 255, 0}
@@ -29,7 +28,6 @@ contributes:
         - "partials/tables.tex"
       format-resources:
         - stylisharticle.cls
-        - chicago.bst
     html:
       number-sections: true
       toc: true
