@@ -68,9 +68,10 @@ corrauthorlabel: Corresponding Author
 # Necessary packages. Add all packages used in the code here.
 packages_required <- c(
   # R tools, do not modify
-  "knitr", 
+  "knitr",
   # Add specific packages here
-  "tidyverse"
+  "tidyverse", 
+  "gt"
 )
 # Already installed?
 packages_installed <- vapply(
@@ -200,7 +201,6 @@ knitr::include_graphics("images/logo.png")
 This is a logo.
 :::
 
-
 Systematically place these files in the `images` folder for the automation of GitHub pages.
 
 ## Tables
@@ -209,52 +209,38 @@ The horizontal `-` and vertical separators `|` allow you to draw a table accordi
 
 Tables can also be produced by R code.
 The content of the table is in a dataframe.
-The `kbl()` function prepares the table for display and passes the result to `kable_styling()` for final formatting.
+The `gt()` function from package *gt* formats it.
+Refer to the documentation of the package for details about formatting the output.
 
+::: {#tbl-iris}
 ```{r}
-#| label: tbl-kable
-#| tbl-cap: "Table _created_ by R, with $\\pi$. Dummy legend to demonstrate formatting capacities."
-#| echo: false
-#| tidy: false
-
+#| label: iris
 names(iris) <- c(
   "Sepal length", 
-  "Width", 
-  "Petal length", 
-  "Width", 
+  "Sepal width", 
+  "Petal length",
+  "Petal width", 
   "Species"
 )
-head(iris) %>% 
-  kableExtra::kbl(
-    # Tables can be longer than a page
-    longtable = TRUE, 
-    # Nice separators
-    booktabs = TRUE
-  ) %>%
-  kableExtra::kable_styling(
-    # Striped rows for readability
-    bootstrap_options = "striped"
-  )
+library("gt")
+head(iris) %>%
+  gt() %>% 
+  # Put the table in the current column in PDF
+  tab_options(latex.use_longtable = TRUE) 
 ```
 
-The caption is specified by the `#| tbl-cap:` chunk option.
+Table _created_ by R in a data frame.
+:::
 
-Always use the `booktabs = TRUE` argument so that the separator lines are optimal in LaTeX.
-The `bootstrap_options = "striped"` option provides more readable tables in HTML.
+By default, the tables spans across the all page.
+To keep in its column, the LaTeX package *longtable* is required as an option of `gt()`.
+It allows displaying tables that are too long to fit in a column and places them in the text.
 
-In LaTeX, `longtable = TRUE` selects the "longtable" package to format tables.
-Such tables are placed in the text.
-Due to limits of the "longtable" package which does not support multi-column layouts, the Stylish Article template uses a workaround that does not allow really long tables to be split into several columns or pages.
-So, `longtable = TRUE` only means that the table will be one-column wide and located in the text if possible.
-If not, it will float.
+A full-width table is @tbl-Paracou.
 
-To use the full width of the page, like @tbl-Paracou, `longtable` is set to `FALSE` in the arguments of `kbl()`.
-The option `full_width = TRUE` in `kable_styling()` allows adjusting the width of the table to that of the page.
-
+::: {#tbl-Paracou}
 ```{r}
-#| label: tbl-Paracou
-#| tbl-cap: "Large table with maths, on two columns"
-#| echo: false
+#| label: Paracou
 
 Intervention <- data.frame(
   Treatment = c("Control", "T1", "T2", "T3"),
@@ -280,24 +266,25 @@ Intervention <- data.frame(
 )
 names(Intervention)[5] <- "\\%AGB lost"
 Intervention %>% 
-  kableExtra::kbl(
-    # Full width table
-    longtable = FALSE, 
-    # Nice separators
-    booktabs = TRUE, 
-    # Special characters in the table
-    escape = FALSE
-  ) %>%
-  kableExtra::kable_styling(
-    # Striped rows for readability
-    bootstrap_options = "striped", 
-    # Full width table
-    full_width = TRUE
-  )
+  gt() %>% 
+  # Interpret cell contents as markdow
+  fmt_markdown() %>% 
+  # Set column widths in %
+  cols_width(
+    Treatment ~ pct(10),
+    Timber ~ pct(25),
+    Thinning ~ pct(25),
+    Fuelwood ~ pct(30),
+    `\\%AGB lost` ~ pct(10)
+  ) %>% 
+  # Reduce font size
+  opt_table_font(size = pct(50))
 ```
 
-This table contains mathematics: the `escape = FALSE` argument is necessary in `kable()`.
-This feature is not yet supported by Quarto in the HTML output.
+Large table with maths, on two columns.
+:::
+
+This table contains mathematics: the `fmt_markdown()` function formats their code.
 
 Finally, the `full_width = TRUE` argument in `kable_styling()` adjusts the width of the table to the available width.
 It must be set for correct formatting of two-column tables in LaTeX.
