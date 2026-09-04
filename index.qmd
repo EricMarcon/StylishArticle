@@ -61,31 +61,28 @@ corrauthorlabel: Corresponding Author
 ---
 
 ```{r}
-#| label: DoNotModify
-### Utilities for R. 
-# Do not modify unless you don't use R: then, delete this chunk.
-# Installation of R packages if necessary
-install_packages <- function(packages) {
-  invisible(
-    sapply(
-      packages, 
-      FUN = function(package) {
-        if (!package %in% installed.packages()[, 1]) {
-          install.packages(
-            package, 
-            repos = "https://cran.rstudio.com/", 
-            quiet = TRUE
-          )
-        }
-      }
-    )
-  )
-}
+#| label: Options
+### Customized R options for this document
+# Delete this chunk if you don't use R
 
-# Basic packages
-install_packages(c("knitR", "formatR", "kableExtra"))
+# Necessary packages. Add all packages used in the code here.
+packages_required <- c(
+  # R tools, do not modify
+  "knitr", 
+  # Add specific packages here
+  "tidyverse"
+)
+# Already installed?
+packages_installed <- vapply(
+  packages_required, 
+  FUN = requireNamespace, 
+  FUN.VALUE = TRUE, 
+  quietly = TRUE
+) 
+# Install missing packages
+install.packages(names(packages_installed)[!packages_installed])
 
-# Chunk font size hook: allows size='small' or any valid Latex font size in chunk options
+# Allow size='small' or any valid Latex font size in chunk options
 def.chunk.hook <- knitr::knit_hooks$get("chunk")
 knitr::knit_hooks$set(
   chunk = function(x, options) {
@@ -97,17 +94,6 @@ knitr::knit_hooks$set(
     )
   }
 )
-```
-
-```{r}
-#| label: Options
-### Customized R options for this document
-# Delete this chunk if you don't use R
-
-# Add necessary packages here
-packages <- c("tidyverse")
-# Install them
-install_packages(packages)
 
 # knitr options (https://yihui.org/knitr/options/)
 knitr::opts_chunk$set(
@@ -125,11 +111,14 @@ options(width = 50)
 
 # ggplot style
 library("tidyverse")
-theme_set(theme_bw())
-theme_update(
-  panel.background = element_rect(fill = "transparent", colour = NA),
-  plot.background = element_rect(fill = "transparent", colour = NA)
-)
+# Function to call in each chunk that produces a figure
+ggtheme_set <- function() {
+  theme_set(theme_bw())
+  theme_update(
+    panel.background = element_rect(fill = "transparent", colour = NA),
+    plot.background = element_rect(fill = "transparent", colour = NA)
+  )
+}
 knitr::opts_chunk$set(dev.args = list(bg = "transparent"))
 
 # Random seed
@@ -173,7 +162,8 @@ The full documentation is on-line[^4].
 
 R code is included in code chunks:
 
-```{r cars}
+```{r}
+#| label: cars
 #| echo: true
 head(cars)
 ```
@@ -315,10 +305,10 @@ Note that tables can't be shown on the first page of the PDF output of the Styli
 Lists are indicated by `*`, `+` and `-` (three hierarchical levels) or numbers `1.`, `i.` and `A.` (numbered lists).
 Indentation of lists indicates their level: `*`, `+` and `-` may be replaced by `-` at all levels, but four spaces are needed to nest a list into another.
 
--   First element of a list
-    -   sub-list
--   Second element
--   Continuation of the list
+- First element of a list
+  - sub-list
+- Second element
+- Continuation of the list
 
 Leave an empty line before and after the list, but not between its items.
 
@@ -328,9 +318,7 @@ Equations in LaTeX format can be inserted inline, like $A = \pi r^2$ or isolated
 
 They can be numbered, see @eq-disk, after adding them a label:
 
-$$
-  A = \pi r^2.
-$$ {#eq-disk}
+$$  A = \pi r^2.$$ {#eq-disk}
 
 ## Cross-references
 
@@ -439,6 +427,6 @@ In this css, colors are declared by
 Quarto does not yet support all features of R Markdown.
 Unsolved issues are listed here, as of version 1.7:
 
--   The `column` options in code chunks or `{.column-xxx}` div's can't be used in this template. They interfere with the two-column LaTeX layout. The template relies on other techniques to print full-width figures and tables.
--   Tables do not support equations in HTML ([issue #555](https://github.com/quarto-dev/quarto-cli/issues/555)). The issue comes from the `kableExtra` R package.
--   Language-specific formats are only partially applied in LaTeX: in the example above, French quotes are not applied. The format of the quotes follows the main language of the document. This seems to be due to the design of the *csquote* LaTeX package.
+- The `column` options in code chunks or `{.column-xxx}` div's can't be used in this template. They interfere with the two-column LaTeX layout. The template relies on other techniques to print full-width figures and tables.
+- Tables do not support equations in HTML ([issue #555](https://github.com/quarto-dev/quarto-cli/issues/555)). The issue comes from the `kableExtra` R package.
+- Language-specific formats are only partially applied in LaTeX: in the example above, French quotes are not applied. The format of the quotes follows the main language of the document. This seems to be due to the design of the *csquote* LaTeX package.
