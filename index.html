@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-GB" xml:lang="en-GB"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.26">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -13,10 +13,16 @@
 
 <title>Demo Stylish Article</title>
 <style>
-code{white-space: pre-wrap;}
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -84,20 +90,17 @@ div.csl-indent {
 <script src="index_files/libs/clipboard/clipboard.min.js"></script>
 <script src="index_files/libs/quarto-html/quarto.js" type="module"></script>
 <script src="index_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="index_files/libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="index_files/libs/quarto-html/popper.min.js"></script>
 <script src="index_files/libs/quarto-html/tippy.umd.min.js"></script>
 <script src="index_files/libs/quarto-html/anchor.min.js"></script>
 <link href="index_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="index_files/libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="index_files/libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="index_files/libs/bootstrap/bootstrap.min.js"></script>
 <link href="index_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="index_files/libs/bootstrap/bootstrap-b9aa03ad5355050647b5a7a5fe5b738e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<script src="index_files/libs/kePrint-0.0.1/kePrint.js"></script>
-<link href="index_files/libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<link href="index_files/libs/bootstrap/bootstrap-a4e28a151ec0c52cda9fef9a7fda4176.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -173,7 +176,7 @@ window.Quarto = {
   <div class="quarto-title-meta-heading">Affiliations</div>
   
     <div class="quarto-title-meta-contents">
-    <p class="author"><a href="https://example.org/">John Doe</a> <a href="mailto:JD@example.org" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> <a href="https://orcid.org/0000-0000-0000-0000" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
+    <p class="author"><a href="https://example.org/">John Doe</a> <a href="mailto:JD@example.org" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> <a href="https://orcid.org/0000-0000-0000-0000" class="quarto-title-author-orcid" aria-label="ORCID profile for John Doe"> <img alt="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
   </div>
   <div class="quarto-title-meta-contents">
         <p class="affiliation">
@@ -258,179 +261,1094 @@ window.Quarto = {
 </section>
 <section id="figures" class="level2 page-columns page-full" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="figures"><span class="header-section-number">3.2</span> Figures</h2>
-<p></p>
-<div class="cell page-columns page-full">
-<div class="cell-output-display page-columns page-full">
 <div id="fig-pressure" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-fig-env="figure*">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-pressure-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="index_files/figure-html/fig-pressure-1.png" class="img-fluid figure-img" style="width:80.0%" data-fig-env="figure*">
-</div>
-<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-pressure-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: Figure <em>title</em> with maths : <span class="math inline">\(\pi\)</span> and cross-reference to <a href="#tbl-kable" class="quarto-xref">Table&nbsp;1</a>
-</figcaption>
+<p></p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/pressure-1.png" class="img-fluid figure-img" style="width:80.0%"></p>
 </figure>
 </div>
 </div>
 </div>
 <p></p>
-<p>Figures can be created by R code (<a href="#fig-pressure" class="quarto-xref">Figure&nbsp;1</a>). A label is associated with each figure: its name is given in the <code>#| label:</code> option of the chunk that produces it. It must start with <code>fig-</code>. Cross-references are made with the command <code>@label</code>, e.g.: <code>@fig-pressure</code>.</p>
-<p>In PDF, a figure can use the full width of the page by adding the options <code>fig-env="figure*"</code> to the header of the code chunk that generates it.</p>
-<p>Existing figures are integrated into a piece of code by the <code>include_graphics()</code> function, see <a href="#fig-logo" class="quarto-xref">Figure&nbsp;2</a>.</p>
-<p></p>
-<div class="cell page-columns page-full">
-<div class="cell-output-display page-columns page-full">
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-pressure-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Comparison of motorway and city driving ranges for 38 car models.
+</figcaption>
+</figure>
+</div>
+<p>Figures can be created by R code (<a href="#fig-pressure" class="quarto-xref">Figure&nbsp;1</a>) in a division whose name starts with <code>#fig-</code>. Cross-references are made with the command <code>@label</code>, e.g.: <code>@fig-pressure</code>.</p>
+<p>In PDF, a figure can use the full width of the page by adding the options <code>fig-env="figure*"</code> to the header of the division.</p>
+<p>Images stored in a file are integrated into a piece of code by the <code>include_graphics()</code> function, see <a href="#fig-logo" class="quarto-xref">Figure&nbsp;2</a>.</p>
 <div id="fig-logo" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-logo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/logo.png" class="img-fluid figure-img" style="width:30.0%">
-</div>
-<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-logo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2: Logo
-</figcaption>
+<p></p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="images/logo.png" class="img-fluid figure-img" style="width:30.0%"></p>
 </figure>
 </div>
 </div>
 </div>
 <p></p>
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-logo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: This is a logo.
+</figcaption>
+</figure>
+</div>
 <p>Systematically place these files in the <code>images</code> folder for the automation of GitHub pages.</p>
 </section>
 <section id="tables" class="level2 page-columns page-full" data-number="3.3">
 <h2 data-number="3.3" class="anchored" data-anchor-id="tables"><span class="header-section-number">3.3</span> Tables</h2>
 <p>The horizontal <code>-</code> and vertical separators <code>|</code> allow you to draw a table according to Markdown syntax, but this is not the best method in R.</p>
-<p>Tables can also be produced by R code. The content of the table is in a dataframe. The <code>kbl()</code> function prepares the table for display and passes the result to <code>kable_styling()</code> for final formatting.</p>
-<p></p>
-<div class="cell page-columns page-full">
-<div id="tbl-kable" class="cell quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<p>Tables can also be produced by R code. The content of the table is in a dataframe. The <code>gt()</code> function from package <em>gt</em> formats it. Refer to the documentation of the package for details about formatting the output.</p>
+<div id="tbl-iris" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
 <figure class="quarto-float quarto-float-tbl figure page-columns page-full">
-<div aria-describedby="tbl-kable-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div aria-describedby="tbl-iris-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<p></p>
+<div class="cell">
 <div class="cell-output-display">
-<table class="table table-striped do-not-create-environment cell table-sm small">
+<div id="pcnrbwykdt" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#pcnrbwykdt table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#pcnrbwykdt thead, #pcnrbwykdt tbody, #pcnrbwykdt tfoot, #pcnrbwykdt tr, #pcnrbwykdt td, #pcnrbwykdt th {
+  border-style: none;
+}
+
+#pcnrbwykdt p {
+  margin: 0;
+  padding: 0;
+}
+
+#pcnrbwykdt .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#pcnrbwykdt .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#pcnrbwykdt .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#pcnrbwykdt .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#pcnrbwykdt .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#pcnrbwykdt .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#pcnrbwykdt .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#pcnrbwykdt .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#pcnrbwykdt .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#pcnrbwykdt .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#pcnrbwykdt .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#pcnrbwykdt .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#pcnrbwykdt .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#pcnrbwykdt .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#pcnrbwykdt .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#pcnrbwykdt .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#pcnrbwykdt .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#pcnrbwykdt .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#pcnrbwykdt .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#pcnrbwykdt .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#pcnrbwykdt .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#pcnrbwykdt .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#pcnrbwykdt .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#pcnrbwykdt .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#pcnrbwykdt .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#pcnrbwykdt .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#pcnrbwykdt .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#pcnrbwykdt .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#pcnrbwykdt .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#pcnrbwykdt .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#pcnrbwykdt .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#pcnrbwykdt .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#pcnrbwykdt .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#pcnrbwykdt .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#pcnrbwykdt .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#pcnrbwykdt .gt_left {
+  text-align: left;
+}
+
+#pcnrbwykdt .gt_center {
+  text-align: center;
+}
+
+#pcnrbwykdt .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#pcnrbwykdt .gt_font_normal {
+  font-weight: normal;
+}
+
+#pcnrbwykdt .gt_font_bold {
+  font-weight: bold;
+}
+
+#pcnrbwykdt .gt_font_italic {
+  font-style: italic;
+}
+
+#pcnrbwykdt .gt_super {
+  font-size: 65%;
+}
+
+#pcnrbwykdt .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#pcnrbwykdt .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#pcnrbwykdt .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#pcnrbwykdt .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#pcnrbwykdt .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#pcnrbwykdt .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#pcnrbwykdt .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#pcnrbwykdt .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#pcnrbwykdt div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table table table-sm table-striped small" data-quarto-bootstrap="false">
 <thead>
-<tr class="header">
-<th style="text-align: right;" data-quarto-table-cell-role="th">Sepal length</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">Width</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">Petal length</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">Width</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Species</th>
+<tr class="gt_col_headings header">
+<th id="Sepal-length" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Sepal length</th>
+<th id="Sepal-width" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Sepal width</th>
+<th id="Petal-length" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Petal length</th>
+<th id="Petal-width" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Petal width</th>
+<th id="Species" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Species</th>
 </tr>
 </thead>
-<tbody>
+<tbody class="gt_table_body">
 <tr class="odd">
-<td style="text-align: right;">5.1</td>
-<td style="text-align: right;">3.5</td>
-<td style="text-align: right;">1.4</td>
-<td style="text-align: right;">0.2</td>
-<td style="text-align: left;">setosa</td>
+<td class="gt_row gt_right" headers="Sepal length">5.1</td>
+<td class="gt_row gt_right" headers="Sepal width">3.5</td>
+<td class="gt_row gt_right" headers="Petal length">1.4</td>
+<td class="gt_row gt_right" headers="Petal width">0.2</td>
+<td class="gt_row gt_center" headers="Species">setosa</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">4.9</td>
-<td style="text-align: right;">3.0</td>
-<td style="text-align: right;">1.4</td>
-<td style="text-align: right;">0.2</td>
-<td style="text-align: left;">setosa</td>
+<td class="gt_row gt_right" headers="Sepal length">4.9</td>
+<td class="gt_row gt_right" headers="Sepal width">3.0</td>
+<td class="gt_row gt_right" headers="Petal length">1.4</td>
+<td class="gt_row gt_right" headers="Petal width">0.2</td>
+<td class="gt_row gt_center" headers="Species">setosa</td>
 </tr>
 <tr class="odd">
-<td style="text-align: right;">4.7</td>
-<td style="text-align: right;">3.2</td>
-<td style="text-align: right;">1.3</td>
-<td style="text-align: right;">0.2</td>
-<td style="text-align: left;">setosa</td>
+<td class="gt_row gt_right" headers="Sepal length">4.7</td>
+<td class="gt_row gt_right" headers="Sepal width">3.2</td>
+<td class="gt_row gt_right" headers="Petal length">1.3</td>
+<td class="gt_row gt_right" headers="Petal width">0.2</td>
+<td class="gt_row gt_center" headers="Species">setosa</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">4.6</td>
-<td style="text-align: right;">3.1</td>
-<td style="text-align: right;">1.5</td>
-<td style="text-align: right;">0.2</td>
-<td style="text-align: left;">setosa</td>
+<td class="gt_row gt_right" headers="Sepal length">4.6</td>
+<td class="gt_row gt_right" headers="Sepal width">3.1</td>
+<td class="gt_row gt_right" headers="Petal length">1.5</td>
+<td class="gt_row gt_right" headers="Petal width">0.2</td>
+<td class="gt_row gt_center" headers="Species">setosa</td>
 </tr>
 <tr class="odd">
-<td style="text-align: right;">5.0</td>
-<td style="text-align: right;">3.6</td>
-<td style="text-align: right;">1.4</td>
-<td style="text-align: right;">0.2</td>
-<td style="text-align: left;">setosa</td>
+<td class="gt_row gt_right" headers="Sepal length">5.0</td>
+<td class="gt_row gt_right" headers="Sepal width">3.6</td>
+<td class="gt_row gt_right" headers="Petal length">1.4</td>
+<td class="gt_row gt_right" headers="Petal width">0.2</td>
+<td class="gt_row gt_center" headers="Species">setosa</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">5.4</td>
-<td style="text-align: right;">3.9</td>
-<td style="text-align: right;">1.7</td>
-<td style="text-align: right;">0.4</td>
-<td style="text-align: left;">setosa</td>
+<td class="gt_row gt_right" headers="Sepal length">5.4</td>
+<td class="gt_row gt_right" headers="Sepal width">3.9</td>
+<td class="gt_row gt_right" headers="Petal length">1.7</td>
+<td class="gt_row gt_right" headers="Petal width">0.4</td>
+<td class="gt_row gt_center" headers="Species">setosa</td>
 </tr>
 </tbody>
 </table>
+
 </div>
 </div>
-<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-tbl margin-caption" id="tbl-kable-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;1: Table <em>created</em> by R, with <span class="math inline">\(\pi\)</span>. Dummy legend to demonstrate formatting capacities.
+</div>
+<p></p>
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-tbl margin-caption" id="tbl-iris-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: Table <em>created</em> by R in a data frame.
 </figcaption>
 </figure>
 </div>
-</div>
-<p></p>
-<p>The caption is specified by the <code>#| tbl-cap:</code> chunk option.</p>
-<p>Always use the <code>booktabs = TRUE</code> argument so that the separator lines are optimal in LaTeX. The <code>bootstrap_options = "striped"</code> option provides more readable tables in HTML.</p>
-<p>In LaTeX, <code>longtable = TRUE</code> selects the “longtable” package to format tables. Such tables are placed in the text. Due to limits of the “longtable” package which does not support multi-column layouts, the Stylish Article template uses a workaround that does not allow really long tables to be split into several columns or pages. So, <code>longtable = TRUE</code> only means that the table will be one-column wide and located in the text if possible. If not, it will float.</p>
-<p>To use the full width of the page, like <a href="#tbl-Paracou" class="quarto-xref">Table&nbsp;2</a>, <code>longtable</code> is set to <code>FALSE</code> in the arguments of <code>kbl()</code>. The option <code>full_width = TRUE</code> in <code>kable_styling()</code> allows adjusting the width of the table to that of the page.</p>
-<p></p>
-<div class="cell page-columns page-full">
-<div id="tbl-Paracou" class="cell quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<p>By default, the tables spans across the all page. To keep in its column, the LaTeX package <em>longtable</em> is required as an option of <code>gt()</code>. It allows displaying tables that are too long to fit in a column and places them in the text.</p>
+<p>A full-width table is <a href="#tbl-Paracou" class="quarto-xref">Table&nbsp;2</a>.</p>
+<div id="tbl-Paracou" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
 <figure class="quarto-float quarto-float-tbl figure page-columns page-full">
 <div aria-describedby="tbl-Paracou-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<p></p>
+<div class="cell">
 <div class="cell-output-display">
-<table class="table table-striped do-not-create-environment cell table-sm small">
+<div id="mbduryjjxb" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#mbduryjjxb table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#mbduryjjxb thead, #mbduryjjxb tbody, #mbduryjjxb tfoot, #mbduryjjxb tr, #mbduryjjxb td, #mbduryjjxb th {
+  border-style: none;
+}
+
+#mbduryjjxb p {
+  margin: 0;
+  padding: 0;
+}
+
+#mbduryjjxb .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#mbduryjjxb .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#mbduryjjxb .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#mbduryjjxb .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#mbduryjjxb .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#mbduryjjxb .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#mbduryjjxb .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#mbduryjjxb .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#mbduryjjxb .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#mbduryjjxb .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#mbduryjjxb .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#mbduryjjxb .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#mbduryjjxb .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#mbduryjjxb .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#mbduryjjxb .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#mbduryjjxb .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#mbduryjjxb .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#mbduryjjxb .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#mbduryjjxb .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#mbduryjjxb .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#mbduryjjxb .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#mbduryjjxb .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#mbduryjjxb .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#mbduryjjxb .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#mbduryjjxb .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#mbduryjjxb .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#mbduryjjxb .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#mbduryjjxb .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#mbduryjjxb .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#mbduryjjxb .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#mbduryjjxb .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#mbduryjjxb .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#mbduryjjxb .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#mbduryjjxb .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#mbduryjjxb .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#mbduryjjxb .gt_left {
+  text-align: left;
+}
+
+#mbduryjjxb .gt_center {
+  text-align: center;
+}
+
+#mbduryjjxb .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#mbduryjjxb .gt_font_normal {
+  font-weight: normal;
+}
+
+#mbduryjjxb .gt_font_bold {
+  font-weight: bold;
+}
+
+#mbduryjjxb .gt_font_italic {
+  font-style: italic;
+}
+
+#mbduryjjxb .gt_super {
+  font-size: 65%;
+}
+
+#mbduryjjxb .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#mbduryjjxb .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#mbduryjjxb .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#mbduryjjxb .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#mbduryjjxb .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#mbduryjjxb .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#mbduryjjxb .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#mbduryjjxb .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#mbduryjjxb div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table table table-sm table-striped small" data-quarto-bootstrap="false">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 30%">
+<col style="width: 10%">
+</colgroup>
 <thead>
-<tr class="header">
-<th style="text-align: left;" data-quarto-table-cell-role="th">Treatment</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Timber</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Thinning</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Fuelwood</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">\%AGB lost</th>
+<tr class="gt_col_headings header">
+<th id="Treatment" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Treatment</th>
+<th id="Timber" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Timber</th>
+<th id="Thinning" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Thinning</th>
+<th id="Fuelwood" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Fuelwood</th>
+<th id="a%AGB-lost" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">%AGB lost</th>
 </tr>
 </thead>
-<tbody>
+<tbody class="gt_table_body">
 <tr class="odd">
-<td style="text-align: left;">Control</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">0</td>
+<td class="gt_row gt_left" headers="Treatment">Control</td>
+<td class="gt_row gt_left" headers="Timber"></td>
+<td class="gt_row gt_left" headers="Thinning"></td>
+<td class="gt_row gt_left" headers="Fuelwood"></td>
+<td class="gt_row gt_left" headers="%AGB lost">0</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">T1</td>
-<td style="text-align: left;">DBH $\geq$ 50 cm, commercial species, $\approx$ 10 trees/ha</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">$[12\%-33\%]$</td>
+<td class="gt_row gt_left" headers="Treatment">T1</td>
+<td class="gt_row gt_left" headers="Timber">DBH <span class="math inline">\(\geq\)</span> 50 cm, commercial species, <span class="math inline">\(\approx\)</span> 10 trees/ha</td>
+<td class="gt_row gt_left" headers="Thinning"></td>
+<td class="gt_row gt_left" headers="Fuelwood"></td>
+<td class="gt_row gt_left" headers="%AGB lost"><span class="math inline">\([12\%-33\%]\)</span></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">T2</td>
-<td style="text-align: left;">DBH $\geq$ 50 cm, commercial species, $\approx$ 10 trees/ha</td>
-<td style="text-align: left;">DBH $\geq$ 40 cm, non-valuable species, $\approx$ 30 trees/ha</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">$[33\%-56\%]$</td>
+<td class="gt_row gt_left" headers="Treatment">T2</td>
+<td class="gt_row gt_left" headers="Timber">DBH <span class="math inline">\(\geq\)</span> 50 cm, commercial species, <span class="math inline">\(\approx\)</span> 10 trees/ha</td>
+<td class="gt_row gt_left" headers="Thinning">DBH <span class="math inline">\(\geq\)</span> 40 cm, non-valuable species, <span class="math inline">\(\approx\)</span> 30 trees/ha</td>
+<td class="gt_row gt_left" headers="Fuelwood"></td>
+<td class="gt_row gt_left" headers="%AGB lost"><span class="math inline">\([33\%-56\%]\)</span></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">T3</td>
-<td style="text-align: left;">DBH $\geq$ 50 cm, commercial species, $\approx$ 10 trees/ha</td>
-<td style="text-align: left;">DBH $\geq$ 50 cm, non-valuable species, $\approx$ 15 trees/ha</td>
-<td style="text-align: left;">40 cm $\leq$ DBH $\leq$ 50 cm, non-valuable species, $\approx$ 15 trees/ha</td>
-<td style="text-align: left;">$[35\%-56\%]$</td>
+<td class="gt_row gt_left" headers="Treatment">T3</td>
+<td class="gt_row gt_left" headers="Timber">DBH <span class="math inline">\(\geq\)</span> 50 cm, commercial species, <span class="math inline">\(\approx\)</span> 10 trees/ha</td>
+<td class="gt_row gt_left" headers="Thinning">DBH <span class="math inline">\(\geq\)</span> 50 cm, non-valuable species, <span class="math inline">\(\approx\)</span> 15 trees/ha</td>
+<td class="gt_row gt_left" headers="Fuelwood">40 cm <span class="math inline">\(\leq\)</span> DBH <span class="math inline">\(\leq\)</span> 50 cm, non-valuable species, <span class="math inline">\(\approx\)</span> 15 trees/ha</td>
+<td class="gt_row gt_left" headers="%AGB lost"><span class="math inline">\([35\%-56\%]\)</span></td>
 </tr>
 </tbody>
 </table>
+
 </div>
-</div>
-<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-tbl margin-caption" id="tbl-Paracou-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;2: Large table with maths, on two columns
-</figcaption>
-</figure>
 </div>
 </div>
 <p></p>
-<p>This table contains mathematics: the <code>escape = FALSE</code> argument is necessary in <code>kable()</code>. This feature is not yet supported by Quarto in the HTML output.</p>
-<p>Finally, the <code>full_width = TRUE</code> argument in <code>kable_styling()</code> adjusts the width of the table to the available width. It must be set for correct formatting of two-column tables in LaTeX.</p>
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-tbl margin-caption" id="tbl-Paracou-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;2: Large table with maths, on two columns in PDF.
+</figcaption>
+</figure>
+</div>
 <p>Note that tables can’t be shown on the first page of the PDF output of the Stylish Article template: they would conflict with the table of contents.</p>
 </section>
 <section id="lists" class="level2" data-number="3.4">
@@ -450,13 +1368,11 @@ Table&nbsp;2: Large table with maths, on two columns
 <h2 data-number="3.5" class="anchored" data-anchor-id="math"><span class="header-section-number">3.5</span> Math</h2>
 <p>Equations in LaTeX format can be inserted inline, like <span class="math inline">\(A = \pi r^2\)</span> or isolated like <span class="math display">\[e^{i \pi} = -1.\]</span></p>
 <p>They can be numbered, see <a href="#eq-disk" class="quarto-xref">Equation&nbsp;1</a>, after adding them a label:</p>
-<p><span id="eq-disk"><span class="math display">\[
-  A = \pi r^2.
-\tag{1}\]</span></span></p>
+<p><span id="eq-disk"><span class="math display">\[  A = \pi r^2. \tag{1}\]</span></span></p>
 </section>
 <section id="cross-references" class="level2" data-number="3.6">
 <h2 data-number="3.6" class="anchored" data-anchor-id="cross-references"><span class="header-section-number">3.6</span> Cross-references</h2>
-<p>Figures and tables have a label declared in their code chunk option <code>tbl-cap</code> or <code>fig-cap</code>, starting with <code>fig-</code> or <code>tbl-</code>.</p>
+<p>Figures and tables have a label declared in their division <code>tbl-xxx</code> or <code>fig-yyy</code>, starting with <code>fig-</code> or <code>tbl-</code>.</p>
 <p>For equations, the label is added manually by the code <code>{#eq-xxx}</code> after the end of the equation.</p>
 <p>Sections can be tagged by ending their title with <code>{#sec-yyy}</code>.</p>
 <p>In all cases, the call to the reference is made by <code>@</code>.</p>
@@ -464,13 +1380,10 @@ Table&nbsp;2: Large table with maths, on two columns
 <section id="bibliography" class="level2 page-columns page-full" data-number="3.7">
 <h2 data-number="3.7" class="anchored" data-anchor-id="bibliography"><span class="header-section-number">3.7</span> Bibliography</h2>
 <p>Bibliographic references included in the <code>.bib</code> file declared in the document header can be called by <code>[@CitationKey]</code>, in parentheses <span class="citation" data-cites="Xie2018">(<a href="#ref-Xie2018" role="doc-biblioref">Xie et al. 2018</a>)</span>, or without square brackets, in the text, as <span class="citation" data-cites="Xie2016">Xie (<a href="#ref-Xie2016" role="doc-biblioref">2016</a>)</span>.</p>
-<p>The bibliography is processed by Pandoc when producing Word or HTML documents. The bibliographic style can be specified, by adding the line</p>
+<p>The bibliographic style can be specified, by adding the line</p>
 <pre><code>csl: file_name.csl</code></pre>
 <p>in the document header and copying the <em>.csl</em> style file to the project folder. More than a thousand styles are available<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a> and their URL can be used instead of copying the file, e.g.:</p>
 <div class="no-row-height column-margin column-container"><div id="fn5"><p><sup>5</sup>&nbsp;<a href="https://github.com/citation-style-language/styles" class="uri">https://github.com/citation-style-language/styles</a></p></div></div><pre><code>csl: https://www.zotero.org/styles/xxx</code></pre>
-<p>For PDF documents, the bibliography is managed by natbib. The style is declared in the header:</p>
-<pre><code>biblio-style: chicago</code></pre>
-<p>It can be changed as long as the appropriate <code>.bst</code> file (by default: <code>chicago.bst</code>) is included in the project.</p>
 </section>
 <section id="forcing-line-breaks" class="level2" data-number="3.8">
 <h2 data-number="3.8" class="anchored" data-anchor-id="forcing-line-breaks"><span class="header-section-number">3.8</span> Forcing line breaks</h2>
@@ -505,11 +1418,9 @@ Table&nbsp;2: Large table with maths, on two columns
 </section>
 <section id="caveats" class="level1" data-number="4">
 <h1 data-number="4"><span class="header-section-number">4</span> Caveats</h1>
-<p>Quarto does not yet support all features of R Markdown. Unsolved issues are listed here, as of version 1.7:</p>
+<p>Quarto does not yet support all features of R Markdown. Unsolved issues are listed here, as of version 1.9:</p>
 <ul>
 <li>The <code>column</code> options in code chunks or <code>{.column-xxx}</code> div’s can’t be used in this template. They interfere with the two-column LaTeX layout. The template relies on other techniques to print full-width figures and tables.</li>
-<li>Tables do not support equations in HTML (<a href="https://github.com/quarto-dev/quarto-cli/issues/555">issue #555</a>). The issue comes from the <code>kableExtra</code> R package.</li>
-<li>Language-specific formats are only partially applied in LaTeX: in the example above, French quotes are not applied. The format of the quotes follows the main language of the document. This seems to be due to the design of the <em>csquote</em> LaTeX package.</li>
 </ul>
 </section>
 <section id="bibliography" class="level1 unnumbered">
