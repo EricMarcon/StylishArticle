@@ -41,7 +41,7 @@ bibliography: references.bib
 lang: en-GB
 otherlangs: fr-FR
 # Code options 
-# https://quarto.org/docs/computations/execution-options.html#output-options
+# https://quarto.org/docs/computations/execution-options.html
 execute:
   # show code chunk output
   include: true
@@ -241,6 +241,7 @@ A full-width table is @tbl-Paracou.
 ::: {#tbl-Paracou}
 ```{r}
 #| label: Paracou
+#| column: screen-inset-right
 
 Intervention <- data.frame(
   Treatment = c("Control", "T1", "T2", "T3"),
@@ -264,7 +265,7 @@ Intervention <- data.frame(
   ),
   AGBLost = c(0, "$[12\\%-33\\%]$", "$[33\\%-56\\%]$", "$[35\\%-56\\%]$")
 )
-names(Intervention)[5] <- "\\%AGB lost"
+names(Intervention)[5] <- "%AGB lost"
 Intervention %>% 
   gt() %>% 
   # Interpret cell contents as markdow
@@ -275,13 +276,21 @@ Intervention %>%
     Timber ~ pct(25),
     Thinning ~ pct(25),
     Fuelwood ~ pct(30),
-    `\\%AGB lost` ~ pct(10)
-  ) %>% 
-  # Reduce font size
-  opt_table_font(size = pct(50))
+    `%AGB lost` ~ pct(10)
+  ) ->
+  the_table
+
+  if (knitr::is_latex_output()) {
+    # Reduce font size in PDF output
+    the_table %>% 
+      opt_table_font(size = pct(50))
+  } else {
+    # Simply print the table
+    the_table
+  }
 ```
 
-Large table with maths, on two columns.
+Large table with maths, on two columns in PDF.
 :::
 
 Note that tables can't be shown on the first page of the PDF output of the Stylish Article template: they would conflict with the table of contents.
