@@ -1,0 +1,13 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode$for(hyperrefoptions)$,$hyperrefoptions$$endfor$}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+$if(colorlinks)$
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+$endif$
+$if(CJKmainfont)$
+\PassOptionsToPackage{space}{xeCJK}
+$endif$
+% Code above from https://github.com/quarto-dev/quarto-cli/blob/main/src/resources/formats/pdf/pandoc/passoptions.latex
+% Customization below
+\PassOptionsToPackage{babel}{csquotes}
+

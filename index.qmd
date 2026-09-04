@@ -284,11 +284,6 @@ Intervention %>%
 Large table with maths, on two columns.
 :::
 
-This table contains mathematics: the `fmt_markdown()` function formats their code.
-
-Finally, the `full_width = TRUE` argument in `kable_styling()` adjusts the width of the table to the available width.
-It must be set for correct formatting of two-column tables in LaTeX.
-
 Note that tables can't be shown on the first page of the PDF output of the Stylish Article template: they would conflict with the table of contents.
 
 ## Lists
@@ -313,7 +308,7 @@ $$  A = \pi r^2.$$ {#eq-disk}
 
 ## Cross-references
 
-Figures and tables have a label declared in their code chunk option `tbl-cap` or `fig-cap`, starting with `fig-` or `tbl-`.
+Figures and tables have a label declared in their division `tbl-xxx` or `fig-yyy`, starting with `fig-` or `tbl-`.
 
 For equations, the label is added manually by the code `{#eq-xxx}` after the end of the equation.
 
@@ -325,7 +320,6 @@ In all cases, the call to the reference is made by `@`.
 
 Bibliographic references included in the `.bib` file declared in the document header can be called by `[@CitationKey]`, in parentheses [@Xie2018], or without square brackets, in the text, as @Xie2016.
 
-The bibliography is processed by Pandoc when producing Word or HTML documents.
 The bibliographic style can be specified, by adding the line
 
 ```         
@@ -340,16 +334,6 @@ More than a thousand styles are available[^5] and their URL can be used instead 
 ```         
 csl: https://www.zotero.org/styles/xxx
 ```
-
-For PDF documents, the bibliography is managed by natbib.
-The style is declared in the header:
-
-```         
-biblio-style: chicago
-```
-
-It can be changed as long as the appropriate `.bst` file (by default: `chicago.bst`) is included in the project.
-
 ## Forcing line breaks
 
 Hyphenation is handled automatically in LaTeX.
@@ -416,8 +400,6 @@ In this css, colors are declared by
 # Caveats
 
 Quarto does not yet support all features of R Markdown.
-Unsolved issues are listed here, as of version 1.7:
+Unsolved issues are listed here, as of version 1.9:
 
 - The `column` options in code chunks or `{.column-xxx}` div's can't be used in this template. They interfere with the two-column LaTeX layout. The template relies on other techniques to print full-width figures and tables.
-- Tables do not support equations in HTML ([issue #555](https://github.com/quarto-dev/quarto-cli/issues/555)). The issue comes from the `kableExtra` R package.
-- Language-specific formats are only partially applied in LaTeX: in the example above, French quotes are not applied. The format of the quotes follows the main language of the document. This seems to be due to the design of the *csquote* LaTeX package.
