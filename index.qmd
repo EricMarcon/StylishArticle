@@ -241,7 +241,6 @@ A full-width table is @tbl-Paracou.
 ::: {#tbl-Paracou}
 ```{r}
 #| label: Paracou
-#| column: screen-inset-right
 
 Intervention <- data.frame(
   Treatment = c("Control", "T1", "T2", "T3"),
