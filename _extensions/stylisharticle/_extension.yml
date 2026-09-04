@@ -25,7 +25,6 @@ contributes:
       template-partials:
         - "partials/before-body.tex"
         - "partials/title.tex"
-        - "partials/tables.tex"
         - "partials/passoptions.latex"
       format-resources:
         - stylisharticle.cls
