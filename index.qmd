@@ -39,7 +39,7 @@ reference-section-title: References
 bibliography: references.bib
 # Language
 lang: en-GB
-otherlangs: [fr-FR, it]
+otherlangs: fr-FR
 # Code options 
 # https://quarto.org/docs/computations/execution-options.html#output-options
 execute:
@@ -173,29 +173,33 @@ This template focuses on R but can be used with any other code language supporte
 
 ## Figures
 
+::: {#fig-pressure fig-env="figure*"}
 ```{r}
-#| label: fig-pressure
-#| fig-cap: "Figure _title_ with maths : $\\pi$ and cross-reference to @tbl-kable"
+#| label: pressure
 #| out-width: 80%
-#| fig-env: "figure*"
 plot(pressure)
 ```
 
-Figures can be created by R code (@fig-pressure).
-A label is associated with each figure: its name is given in the `#| label:` option of the chunk that produces it.
-It must start with `fig-`.
+Comparison of motorway and city driving ranges for 38 car models.
+:::
+
+Figures can be created by R code (@fig-pressure) in a division whose name starts with `#fig-`.
 Cross-references are made with the command `@label`, e.g.: `@fig-pressure`.
 
-In PDF, a figure can use the full width of the page by adding the options `fig-env="figure*"` to the header of the code chunk that generates it.
+In PDF, a figure can use the full width of the page by adding the options `fig-env="figure*"` to the header of the division.
 
-Existing figures are integrated into a piece of code by the `include_graphics()` function, see @fig-logo.
+Images stored in a file are integrated into a piece of code by the `include_graphics()` function, see @fig-logo.
 
+::: {#fig-logo}
 ```{r}
-#| label: fig-logo
-#| fig-cap: "Logo"
+#| label: logo
 #| out-width: 30%
 knitr::include_graphics("images/logo.png")
 ```
+
+This is a logo.
+:::
+
 
 Systematically place these files in the `images` folder for the automation of GitHub pages.
 
