@@ -224,21 +224,28 @@ names(iris) <- c(
 )
 library("gt")
 head(iris) %>%
-  gt() %>% 
-  # Put the table in the current column in PDF
-  tab_options(latex.use_longtable = TRUE) 
+  gt() ->
+  the_table
+
+if (knitr::is_latex_output()) {
+  # Reduce font size in PDF output
+  the_table %>% 
+    opt_table_font(size = px(9))
+} else {
+  # Simply print the table
+  the_table
+}
 ```
 
-Table _created_ by R in a data frame.
+Table created by R in a data frame.
 :::
 
-By default, the tables spans across the all page.
-To keep in its column, the LaTeX package *longtable* is required as an option of `gt()`.
-It allows displaying tables that are too long to fit in a column and places them in the text.
+By default, the tables is contained in its column.
 
 A full-width table is @tbl-Paracou.
+It is obtained with the option `fig-env="table*"` in the header of the division.
 
-::: {#tbl-Paracou}
+::: {#tbl-Paracou fig-env="table*"}
 ```{r}
 #| label: Paracou
 
@@ -279,14 +286,14 @@ Intervention %>%
   ) ->
   the_table
 
-  if (knitr::is_latex_output()) {
-    # Reduce font size in PDF output
-    the_table %>% 
-      opt_table_font(size = pct(50))
-  } else {
-    # Simply print the table
-    the_table
-  }
+if (knitr::is_latex_output()) {
+  # Reduce font size in PDF output
+  the_table %>% 
+    opt_table_font(size = px(11))
+} else {
+  # Simply print the table
+  the_table
+}
 ```
 
 Large table with maths, on two columns in PDF.
