@@ -349,6 +349,7 @@ More than a thousand styles are available[^5] and their URL can be used instead 
 ```         
 csl: https://www.zotero.org/styles/xxx
 ```
+
 ## Forcing line breaks
 
 Hyphenation is handled automatically in LaTeX.
@@ -410,6 +411,79 @@ In this css, colors are declared by
 
 ```         
 .color-grey {color: rgb(191, 191, 191);}
+```
+
+# .gitignore
+
+Copy this content to the `.gitignore` file:
+
+```         
+# RStudio files and folders
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+
+# Mac OS
+.DS_Store
+
+# Output
+/*.html
+/*.pdf
+/*.tex
+# Intermediate files
+/nul
+/*.aux
+/*.log
+/*.toc
+# Working folders
+/*_files/
+/*_cache/
+
+# Template (copied from _extensions)
+/stylisharticle.cls
+```
+
+# GitHub Action
+
+Create a file named `quarto_publish.yml` in the folder `.github/workflows` (to be created) to activate continuous integration:
+
+```         
+on:
+  push:
+    branches: [main, master]
+
+name: Render and Publish
+
+jobs:
+  build-deploy:
+    runs-on: macOS-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+      - name: Set up R
+        uses: r-lib/actions/setup-r@v2
+      - name: Set up Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tinytex: true
+      - name: Install dependencies
+        run: |
+          options(pkgType = "binary")
+          options(install.packages.check.source = "no")
+          install.packages(c("rmarkdown", "knitr"))
+        shell: Rscript {0}
+      - name: Publish to GitHub Pages
+        uses: quarto-dev/quarto-actions/publish@v2
+        with:
+          path: index.qmd
+          target: gh-pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
 
 # Caveats
