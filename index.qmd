@@ -68,7 +68,8 @@ corrauthorlabel: Corresponding Author
 # Necessary packages. Add all packages used in the code here.
 packages_required <- c(
   # R tools, do not modify
-  "knitr",
+  "knitr",   # to run the code chunks
+  "formatR", # if tidy = TRUE below
   # Add specific packages here
   "tidyverse", 
   "gt"
