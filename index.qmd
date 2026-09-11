@@ -81,7 +81,10 @@ packages_installed <- vapply(
   quietly = TRUE
 ) 
 # Install missing packages
-install.packages(names(packages_installed)[!packages_installed])
+install.packages(
+  names(packages_installed)[!packages_installed],
+  quiet = TRUE
+)
 
 # Allow size='small' or any valid Latex font size in chunk options
 def.chunk.hook <- knitr::knit_hooks$get("chunk")
