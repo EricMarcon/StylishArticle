@@ -158,7 +158,9 @@ window.Quarto = {
   <li><a href="#languages" id="toc-languages" class="nav-link" data-scroll-target="#languages"><span class="header-section-number">3.9</span> Languages</a></li>
   <li><a href="#text-color" id="toc-text-color" class="nav-link" data-scroll-target="#text-color"><span class="header-section-number">3.10</span> Text color</a></li>
   </ul></li>
-  <li><a href="#caveats" id="toc-caveats" class="nav-link" data-scroll-target="#caveats"><span class="header-section-number">4</span> Caveats</a></li>
+  <li><a href="#gitignore" id="toc-gitignore" class="nav-link" data-scroll-target="#gitignore"><span class="header-section-number">4</span> .gitignore</a></li>
+  <li><a href="#github-action" id="toc-github-action" class="nav-link" data-scroll-target="#github-action"><span class="header-section-number">5</span> GitHub Action</a></li>
+  <li><a href="#caveats" id="toc-caveats" class="nav-link" data-scroll-target="#caveats"><span class="header-section-number">6</span> Caveats</a></li>
   <li><a href="#bibliography" id="toc-bibliography" class="nav-link" data-scroll-target="#bibliography">References</a></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="index.pdf"><i class="bi bi-file-pdf"></i>PDF (stylisharticle)</a></li></ul></div></nav>
@@ -1416,8 +1418,75 @@ Table&nbsp;2: Large table with maths, on two columns in PDF.
 <pre><code>.color-grey {color: rgb(191, 191, 191);}</code></pre>
 </section>
 </section>
-<section id="caveats" class="level1" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> Caveats</h1>
+<section id="gitignore" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> .gitignore</h1>
+<p>Copy this content to the <code>.gitignore</code> file:</p>
+<pre><code># RStudio files and folders
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+
+# Mac OS
+.DS_Store
+
+# Output
+/*.html
+/*.pdf
+/*.tex
+# Intermediate files
+/nul
+/*.aux
+/*.log
+/*.toc
+# Working folders
+/*_files/
+/*_cache/
+
+# Template (copied from _extensions)
+/stylisharticle.cls</code></pre>
+</section>
+<section id="github-action" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> GitHub Action</h1>
+<p>Create a file named <code>quarto_publish.yml</code> in the folder <code>.github/workflows</code> (to be created) to activate continuous integration:</p>
+<pre><code>on:
+  push:
+    branches: [main, master]
+
+name: Render and Publish
+
+jobs:
+  build-deploy:
+    runs-on: macOS-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+      - name: Set up R
+        uses: r-lib/actions/setup-r@v2
+      - name: Set up Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tinytex: true
+      - name: Install dependencies
+        run: |
+          options(pkgType = "binary")
+          options(install.packages.check.source = "no")
+          install.packages(c("rmarkdown", "knitr"))
+        shell: Rscript {0}
+      - name: Publish to GitHub Pages
+        uses: quarto-dev/quarto-actions/publish@v2
+        with:
+          path: index.qmd
+          target: gh-pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}</code></pre>
+</section>
+<section id="caveats" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Caveats</h1>
 <p>Quarto does not yet support all features of R Markdown. Unsolved issues are listed here, as of version 1.9:</p>
 <ul>
 <li>The <code>column</code> options in code chunks or <code>{.column-xxx}</code> div’s can’t be used in this template. They interfere with the two-column LaTeX layout. The template relies on other techniques to print full-width figures and tables.</li>
