@@ -1,20 +1,24 @@
-.DS_Store
-
-# R files
+# RStudio files and folders
 .Rproj.user
 .Rhistory
-.Rdata
+.RData
+.Ruserdata
 
-# Quarto working files
-/nul
-/*.aux
-/*.bst
-/*.cls
+# Mac OS
+.DS_Store
+
+# Output
 /*.html
-/*.log
 /*.pdf
 /*.tex
-/stylisharticle.cls
-
-# Cache
+# Intermediate files
+/nul
+/*.aux
+/*.log
+/*.toc
+# Working folders
 /*_files/
+/*_cache/
+
+# Template (copied from _extensions)
+/stylisharticle.cls
