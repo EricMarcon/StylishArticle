@@ -84,6 +84,7 @@ packages_installed <- vapply(
 # Install missing packages
 install.packages(
   names(packages_installed)[!packages_installed],
+  repos = "https://cran.rstudio.com/",
   quiet = TRUE
 )
 
