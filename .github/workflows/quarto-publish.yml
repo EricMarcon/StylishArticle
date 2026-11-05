@@ -6,7 +6,7 @@ name: Render and Publish
 
 jobs:
   build-deploy:
-    runs-on: macOS-latest
+    runs-on: ubuntu-latest
     permissions:
       contents: write
     steps:
@@ -22,9 +22,13 @@ jobs:
           tinytex: true
       - name: Install dependencies
         run: |
-          options(pkgType = "binary")
-          options(install.packages.check.source = "no")
-          install.packages(c("rmarkdown", "knitr"))
+          install.packages("pak")
+          pak::pkg_install(
+            c(
+              "any::rmarkdown",
+              "any::knitr"
+            )
+          )
         shell: Rscript {0}
       - name: Publish to GitHub Pages
         uses: quarto-dev/quarto-actions/publish@v2
