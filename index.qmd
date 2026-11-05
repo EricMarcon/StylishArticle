@@ -62,6 +62,7 @@ corrauthorlabel: Corresponding Author
 
 ```{r}
 #| label: Options
+#| include: false
 ### Customized R options for this document
 # Delete this chunk if you don't use R
 
