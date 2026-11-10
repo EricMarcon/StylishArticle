@@ -26,7 +26,8 @@ jobs:
           pak::pkg_install(
             c(
               "any::rmarkdown",
-              "any::knitr"
+              "any::knitr",
+              "any::tidyverse"
             )
           )
         shell: Rscript {0}
